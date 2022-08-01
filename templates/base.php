@@ -17,7 +17,7 @@
         <?php include_once('partials/header.php');?>
         
         <!-- Main -->
-        <main class="container py-5 col-lg-4 m-vh-80">
+        <main class="container-lg py-5 col-lg-4 m-vh-80">
 
         <!-- Inserton de notre contenu ici -->
         <?= $content ?>
