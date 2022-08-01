@@ -24,13 +24,12 @@ try {
             }
             submitSignup($input); 
         } elseif ($_GET['action'] === 'logout') {
-            logout();
+            //logout();
         } 
     } else {
         homepage();
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
-
     echo($errorMessage);
 }
