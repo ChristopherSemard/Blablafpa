@@ -7,25 +7,15 @@ class Travel{
     private $userId;
     private $dateStart;
     private $seatAvailable;
-    private $steps;
+    private $listSteps;
 
-    public function __construct($travelId,$userId,$dateStart,$seatAvailable,$steps=[])
+    public function __construct($travelId,$userId,$dateStart,$seatAvailable,$steps=[new Step,new Step])
     {
         $this->travelId=$travelId;
         $this->$userId=$userId;
         $this->$dateStart=$dateStart;
         $this->$seatAvailable=$seatAvailable;
         $this->$steps = $steps;
-    }
-
-    public function getAvailableSeat(){
-        return 5;
-    }
-    public function booking($seat){
-        if($this->getAvailableSeat() < $seat) {
-            return false;
-        }
-        return true;
     }
     
     public function addStep($step){
