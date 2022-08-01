@@ -18,7 +18,21 @@ class Travel{
         $this->$steps = $steps;
     }
 
-    public function getAvaillableSeat(){
-         
+    public function getAvailableSeat(){
+        return 5;
+    }
+    public function booking($seat){
+        if($this->getAvailableSeat() < $seat) {
+            return false;
+        }
+        return true;
+    }
+    
+    public function addStep($step){
+        array_push($this->steps,$step);
+    }
+
+    public function getSteps(){
+        return $this->steps;
     }
 }
