@@ -1,9 +1,6 @@
 <?php
 require_once('../src/pdo/pdo.php');
 
-<<<<<<< HEAD
-=======
-
 class User
 {
     private $idAfpa;
@@ -63,4 +60,3 @@ class User
 
 
 }
->>>>>>> master
