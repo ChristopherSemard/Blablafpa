@@ -1,7 +1,8 @@
 <?php
 
 require_once('../src/controllers/Homepage.php');
-
+require_once('../src/controllers/Login.php');
+require_once('../src/controllers/Signup.php');
 
 
 
@@ -16,7 +17,7 @@ try {
             }
             submitLogin($input); 
         } elseif ($_GET['action'] === 'signup') {
-            displayFormSignIn();
+            displayFormSignup();
         }  elseif ($_GET['action'] === 'submitsignup') {
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
