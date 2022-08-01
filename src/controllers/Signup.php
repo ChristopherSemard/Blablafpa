@@ -35,21 +35,17 @@ var_dump($data);
                 if(filter_var($email, FILTER_VALIDATE_EMAIL)){ // Si l'email est de la bonne forme
                     if($password == $password_retype){ // si les deux mdp saisis sont bons
 
-                        $password = hash('sha256', $password);
-                        var_dump(2);
-                    
-                        $insert = $bdd->prepare('INSERT INTO users(afpa_id, email, firstname, lastname, password) VALUES(:afpa_id, :firstname, :lastname, :email, :password');
-                        $insert->execute(array(
-                            'afpa_id' => $idAfpa,
-                            'firstname' => $firstName,
-                            'lastname' => $lastName,
-                            'email' => $email,
-                            'password' => $password,
-                    
-            
-                        ));
+                        $password = password_hash($password, PASSWORD_BCRYPT);
+
+                        $statement = $bdd->prepare('INSERT INTO users (afpa_id, email, firstname, lastname, password) VALUES (:afpa_id, :email, :firstname, :lastname, :password)');
+                        $statement->execute(  ['afpa_id' => $idAfpa,
+                        'firstname' => $firstName,
+                        'lastname' => $lastName,
+                        'email' => $email,
+                        'password' => $password]);
+
                         // On redirige avec le message de succès
-                        // header('Location:index.php?action=login');
+                        header('Location:index.php?action=login');
                         
                     }else header('Location: index.php?action=signup');
                 }else header('Location: index.php?action=signup');
