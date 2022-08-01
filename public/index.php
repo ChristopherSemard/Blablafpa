@@ -1,6 +1,13 @@
 <?php
 
 require_once('../src/controllers/Homepage.php');
+<<<<<<< HEAD
+=======
+require_once('../src/controllers/Login.php');
+require_once('../src/controllers/Signup.php');
+
+
+>>>>>>> master
 try {
     if (isset($_GET['action']) && $_GET['action'] !== '') {
         if ($_GET['action'] === 'login') {
@@ -12,7 +19,7 @@ try {
             }
             submitLogin($input); 
         } elseif ($_GET['action'] === 'signup') {
-            displayFormSignIn();
+            displayFormSignup();
         }  elseif ($_GET['action'] === 'submitsignup') {
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {

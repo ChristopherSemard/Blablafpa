@@ -2,12 +2,12 @@
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between">
             <a href="../index.php" class="mb-2 mb-lg-0 text-decoration-none">
-                <h1>MINITCHAT</h1>
+                <img class="logo" src="./assets/images/logo.png" alt="">
             </a>
             <?php  if(!isset($_SESSION['LOGGED_USER'])) :?>
                 <div class="text-end">
                     <a href="../index.php?action=login" class="btn btn-primary me-2">Connexion</a>
-                    <a href="../index.php?action=signin" class="btn btn-warning me-2">Inscription</a>
+                    <a href="../index.php?action=signup" class="btn btn-warning me-2">Inscription</a>
                 </div>
             <?php endif ?>
 
