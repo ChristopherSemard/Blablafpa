@@ -4,7 +4,7 @@
 
 
     <h2 class="text-center mb-4">INSCRIPTION</h2>
-    <form class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submitsignin">
+    <form class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submitsignup">
         <!-- Choix de pseudo -->
         <div class="form-group">
         <label for="inputAfpaId">ID AFPA</label>
@@ -12,13 +12,25 @@
         </div>
         <!-- Choix de mot de passe -->
         <div class="form-group">
+            <label for="inputFirstName">Fist Name : </label>
+            <input type="text" class="form-control" id="inputFirstName" name="firstName" placeholder="firstname" required>
+        </div>
+        <div class="form-group">
+            <label for="inputLastName">Last Name :</label>
+            <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="lastname" required>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail">Email :</label>
+            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="email" required>
+        </div>
+        <div class="form-group">
             <label for="inputPassword">Mot de passe (8 caractères minimum)</label>
             <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Mot de passe" required>
         </div>
         <!-- Confirmation mot de passe -->
         <div class="form-group">
             <label for="inputConfirmPassword">Confirmer le mot de passe</label>
-            <input type="password" class="form-control" id="inputConfirmPassword" name="password-confirm" placeholder="Mot de passe" required>
+            <input type="password" class="form-control" id="inputConfirmPassword" name="password_retype" placeholder="Re-tapez le mot de passe" required>
         </div>
         <!-- Bouton envoyer -->
         <button type="submit" class="btn btn-primary mt-2">Valider</button>

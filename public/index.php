@@ -3,6 +3,8 @@
 require_once('../src/controllers/Homepage.php');
 require_once('../src/controllers/Login.php');
 require_once('../src/controllers/Signup.php');
+require_once('../src/controllers/Logout.php');
+
 
 
 try {
@@ -24,7 +26,7 @@ try {
             }
             submitSignup($input); 
         } elseif ($_GET['action'] === 'logout') {
-            // logout();
+            logout();
         } 
     } else {
         homepage();
