@@ -27,7 +27,7 @@ if(isset($input['afpaId']) && isset($input['email']) && isset($input['firstName'
     $row = $check->rowCount();
 var_dump($data);
     $email = strtolower($email); // on transforme toute les lettres majuscule en minuscule pour éviter que Foo@gmail.com et foo@gmail.com soient deux compte différents ..
-    var_dump(1);
+
     // Si la requete renvoie un 0 alors l'utilisateur n'existe pas 
     if($row == 0){ 
         if(strlen($idAfpa) <= 60){ // On verifie que la longueur du pseudo <= 60
@@ -45,8 +45,8 @@ var_dump($data);
                         'password' => $password]);
 
                         // On redirige avec le message de succès
-                        header('Location:index.php?action=login');
-                        
+                        $_SESSION['LOGGED_USER'] = $idAfpa;
+                        header('Location:index.php');
                     }else header('Location: index.php?action=signup');
                 }else header('Location: index.php?action=signup');
             }else header('Location: index.php?action=signup');
