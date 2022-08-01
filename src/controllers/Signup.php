@@ -20,11 +20,15 @@ function submitSignup($input){
         $password = htmlspecialchars($input['password']);
         $password_retype = htmlspecialchars($input['password_retype']);
         
+    
+        $regexPassword = "/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/";
 
         $check = $bdd->prepare('SELECT afpa_id, firstname, lastname, email, password FROM users WHERE afpa_id = ?');
         $check->execute(array($idAfpa));
         $data = $check->fetch();
         $row = $check->rowCount();
+
+
 
         // Si la requete renvoie un 0 alors l'utilisateur n'existe pas 
         if($row !=0){
@@ -57,8 +61,7 @@ function submitSignup($input){
             header('Location: index.php?action=signup');
             exit;
         }
-
-        else if (!preg_match(regexPassword, $password)){
+        else if (!preg_match($regexPassword, $password)){
             $_SESSION['ERROR_SIGNIN'] = 'Votre mot de passe n\'est pas valide';
             $_SESSION['ERROR_SIGNIN_INPUT'] = $input;
             header('Location: ../index.php?action=signin');
