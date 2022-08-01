@@ -5,7 +5,6 @@ require_once('../src/controllers/Login.php');
 require_once('../src/controllers/Signup.php');
 
 
-
 try {
     if (isset($_GET['action']) && $_GET['action'] !== '') {
         if ($_GET['action'] === 'login') {
