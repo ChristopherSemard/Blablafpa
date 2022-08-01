@@ -1,6 +1,6 @@
 <?php
 class Step{
-    private $id;
+    //private $id;
     private $locationStart;
     private $locationFinish;
    //private $travel_id;
@@ -12,7 +12,7 @@ class Step{
         //$this->travelId=$travelId;
         $this->locationStart=$locationStart;
         $this->locationFinish=$locationFinish;
-        $this->$seatAvailable=$seatAvailable;
+        $this->seatAvailable=$seatAvailable;
     }
 
     public function getAvailableSeat(){
