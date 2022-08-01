@@ -9,7 +9,7 @@ class Travel{
     private $seatAvailable;
     private $listSteps;
 
-    public function __construct($travelId,$userId,$dateStart,$seatAvailable,$steps=[new Step,new Step])
+    public function __construct($travelId,$userId,$dateStart,$seatAvailable,$steps=[])
     {
         $this->travelId=$travelId;
         $this->$userId=$userId;
