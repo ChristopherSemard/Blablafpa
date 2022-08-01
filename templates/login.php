@@ -6,7 +6,10 @@
 
 
 <h2 class="text-center mb-4">CONNEXION</h2>
+<<<<<<< HEAD
 
+=======
+>>>>>>> be171d154928091874cad9617903a5591813f6d3
         <form class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submitlogin">
                 <label for="inputAfpaId">ID AFPA</label>
                 <input type="text" class="form-control" id="inputAfpaId" name="afpaId" placeholder="Identifiant AFPA" required value="<?= isset($_SESSION['ERROR_LOGIN_INPUT']) ? $_SESSION['ERROR_LOGIN_INPUT']['afpaId'] : '' ?>">
