@@ -4,17 +4,22 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
 }
 
 .vh-10 {
     height: 10vh;
 }
+
 .m-vh-80 {
     min-height: 80vh;
 }
+
 .h-10 {
     height: 10%;
 }
+
 .h-80 {
     height: 80%;
 }
