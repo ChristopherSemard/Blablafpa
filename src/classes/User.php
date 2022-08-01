@@ -2,7 +2,14 @@
 require_once('../src/pdo/pdo.php');
 
 
-class User
-{
-    
+class User{
+    private $id;
+    private $afpaId;
+    private $email;
+    private $firstname;
+    private $lastname;
+
+    public function getEmail(){
+        return $this->id;
+    }
 }
