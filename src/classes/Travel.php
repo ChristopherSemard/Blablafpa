@@ -1,6 +1,7 @@
 <?php
-require_once('../src/pdo/pdo.php');
+//require_once('../src/pdo/pdo.php');
 
+include('Step.php');
 
 class Travel{
     private $travelId;
@@ -17,7 +18,6 @@ class Travel{
         $this->$seatAvailable=$seatAvailable;
         $this->$steps = $steps;
     }
-    
     public function addStep($step){
         array_push($this->steps,$step);
     }
@@ -26,3 +26,5 @@ class Travel{
         return $this->steps;
     }
 }
+$travelTest = new Travel(1,1,'2022/08/01',3,[new Step('Rouen','Paris',3)]);
+var_dump($travelTest);
