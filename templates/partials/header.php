@@ -8,6 +8,7 @@
                 <div class="text-end">
                     <a href="../index.php?action=login" class="btn btn-primary me-2">Connexion</a>
                     <a href="../index.php?action=signup" class="btn btn-warning me-2">Inscription</a>
+                    <a href="../index.php?action=publish-travel" class="btn btn-outline-primary me-2">Publier un trajet</a>
                 </div>
             <?php endif ?>
 
