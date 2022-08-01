@@ -1,9 +1,7 @@
 <?php
 
 require_once('../src/controllers/Homepage.php');
-
-
-
+$damiridne = 'hello';
 try {
     if (isset($_GET['action']) && $_GET['action'] !== '') {
         if ($_GET['action'] === 'login') {
@@ -30,6 +28,5 @@ try {
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
-
     echo($errorMessage);
 }
