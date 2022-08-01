@@ -24,7 +24,7 @@ try {
             }
             submitSignup($input); 
         } elseif ($_GET['action'] === 'logout') {
-            //logout();
+            // logout();
         } 
     } else {
         homepage();
