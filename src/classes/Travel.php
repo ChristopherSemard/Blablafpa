@@ -27,4 +27,4 @@ class Travel{
     }
 }
 $travelTest = new Travel(1,1,'2022/08/01',3,[new Step('Rouen','Paris',3)]);
-var_dump($travelTest->getSteps());
+var_dump($travelTest->getSteps()[0]->getStep());
