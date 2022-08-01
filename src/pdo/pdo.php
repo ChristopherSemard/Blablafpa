@@ -3,7 +3,7 @@
 // Test de connexion
 try
 {
-    $bdd = new PDO('mysql:host=localhost;dbname=blablafpa;charset=utf8', 'blablafpa', 'iES8Gnf*e-g3XFM'); 
+    $bdd = new PDO('mysql:host=localhost;dbname=blablafpa;charset=utf8', 'root', ''); 
 }
 
 // Gestion des erreurs

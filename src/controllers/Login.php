@@ -11,7 +11,7 @@ function displayFormLogin(){
 function submitLogin(){
     session_start();
 require_once('../src/pdo/pdo.php');
-var_dump($_POST);
+// var_dump($_POST);
 if(isset($_POST['afpaId'])&& isset($_POST['password']))
 {
     $idAfpa = htmlspecialchars($_POST['afpaId']);
