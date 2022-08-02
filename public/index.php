@@ -3,8 +3,8 @@
 require_once('../src/controllers/Homepage.php');
 require_once('../src/controllers/Login.php');
 require_once('../src/controllers/Signup.php');
+require_once('../src/controllers/PublishTravel.php');
 require_once('../src/controllers/Logout.php');
-
 
 
 try {
@@ -27,6 +27,9 @@ try {
             submitSignup($input); 
         } elseif ($_GET['action'] === 'logout') {
             logout();
+        } 
+        elseif ($_GET['action'] === 'publish-travel') {
+            displayFormPublishTravel();
         } 
     } else {
         homepage();
