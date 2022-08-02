@@ -42,7 +42,6 @@ function submitLogin(){
                 }
                 
             }else{
-
                 header('Location: index.php?action=login');
             } 
         }else {

@@ -6,9 +6,10 @@
 
 
 <h2 class="text-center mb-4">CONNEXION</h2>
-                <?php if (isset($_SESSION['SUCCESS_SIGNIN'])): ?>
-                        <p class='text-center alert alert-success mt-2' role='alert'><?= $_SESSION['SUCCESS_SIGNIN'] ?></p>
-                <?php endif ?>
+<<<<<<< HEAD
+
+=======
+>>>>>>> be171d154928091874cad9617903a5591813f6d3
         <form class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submitlogin">
                 <label for="inputAfpaId">ID AFPA</label>
                 <input type="text" class="form-control" id="inputAfpaId" name="afpaId" placeholder="Identifiant AFPA" required value="<?= isset($_SESSION['ERROR_LOGIN_INPUT']) ? $_SESSION['ERROR_LOGIN_INPUT']['afpaId'] : '' ?>">
