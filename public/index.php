@@ -3,10 +3,11 @@
 require_once('../src/controllers/Homepage.php');
 require_once('../src/controllers/Login.php');
 require_once('../src/controllers/Signup.php');
+require_once('../src/controllers/Search.php');
 
 
 try {
-    if (isset($_GET['action']) && $_GET['action'] !== '') {
+    if (isset($_GET['action']) && $_GET['action']){
         if ($_GET['action'] === 'login') {
             displayFormLogin();
         } elseif ($_GET['action'] === 'submitlogin') {
@@ -25,7 +26,10 @@ try {
             submitSignup($input); 
         } elseif ($_GET['action'] === 'logout') {
             //logout();
-        } 
+        } elseif($_GET['action']==='search'){
+            displayFormSearch();
+            var_dump(extract($_POST));
+        }
     } else {
         homepage();
     }
@@ -33,3 +37,5 @@ try {
     $errorMessage = $e->getMessage();
     echo($errorMessage);
 }
+?>
+<script src="./assets/js/autocomplete.js"></script>

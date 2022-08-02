@@ -19,12 +19,13 @@ class Travel{
         $this->listSteps = $steps;
     }
     public function addStep($step){
-        array_push($this->steps,$step);
+        array_push($this->listSteps,$step);
     }
 
     public function getSteps(){
         return $this->listSteps;
     }
 }
-$travelTest = new Travel(1,1,'2022/08/01',3,[new Step('Rouen','Paris',3)]);
-var_dump($travelTest->getSteps()[0]->getStep());
+$travelTest = new Travel(1,1,'2022/08/01',3,[]);
+
+$travelTest->addStep(new Step('Rouen','Paris',0));

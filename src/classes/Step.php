@@ -3,7 +3,7 @@ class Step{
     //private $id;
     private $locationStart;
     private $locationFinish;
-   //private $travel_id;
+    //private $travel_id;
     private $seatAvailable;
     
 
@@ -19,6 +19,6 @@ class Step{
         return $this->seatAvailable;
     }
     public function getStep(){
-        return $this->locationStart . '-' . $this->locationFinish;
+        return $this->locationStart . 'to' . $this->locationFinish;
     }
 }
