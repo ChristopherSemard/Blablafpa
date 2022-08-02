@@ -1,24 +1,34 @@
 <?php
 class Step{
-    private $id;
-    private $locationStart;
-    private $locationFinish;
-   //private $travel_id;
-    private $seatAvailable;
+    private $stepId;
+    private $cityStart;
+    private $cityFinish;
+    private $travelId;
     
 
-    public function __construct($locationStart,$locationFinish,$seatAvailable)
+    public function __construct($cityStart, $cityFinish, $travelId)
     {
-        //$this->travelId=$travelId;
-        $this->locationStart=$locationStart;
-        $this->locationFinish=$locationFinish;
-        $this->$seatAvailable=$seatAvailable;
+        $this->cityStart=$cityStart;
+        $this->cityFinish=$cityFinish;
+        $this->travelId=$travelId;
     }
 
     public function getAvailableSeat(){
-        return $this->seatAvailable;
+        // return $this->seatAvailable;
     }
-    public function getStep(){
-        return $this->locationStart . '-' . $this->locationFinish;
+    public function getStepName(){
+        return $this->cityStart . '-' . $this->cityFinish;
     }
+
+    public function getCityStart(){
+        return $this->cityStart;
+    }
+    public function getCityFinish(){
+        return $this->cityFinish;
+    }
+    public function getTravelId(){
+        return $this->travelId;
+    }
+
+
 }

@@ -4,18 +4,37 @@
 
 <?php ob_start(); ?>
 
-        <form class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submitlogin">
-                <label for="inputAfpaId">ID AFPA</label>
-                <input type="text" class="form-control" id="inputAfpaId" name="afpaId" placeholder="Identifiant AFPA" required value="<?= isset($_SESSION['ERROR_LOGIN_INPUT']) ? $_SESSION['ERROR_LOGIN_INPUT']['afpaId'] : '' ?>">
-                <label for="inputPassword">Mot de passe</label>
-                <input type="password" class="form-control" id="inputPassword" name="password"  placeholder="Mot de passe" required>
+        <form class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submit-publish-travel">
+
+                <label for="inputStart">Ville de départ</label>
+                <input type="text" class="form-control" id="inputStart" name="start"  placeholder="Ville de départ du trajet" required value="Rouen">
+
+                <label for="inputDestination">Etapes</label>
+                <button type="button" id="addStep" class="btn btn-primary">Ajouter une étape</button>
+                <div id="divStep">
+                </div>
+
+                <label for="inputDestination">Ville d'arrivée</label>
+                <input type="text" class="form-control" id="inputDestination" name="destination"  placeholder="Ville d'arrivée du trajet"  required value="Marseille">
+
+                <label for="inputSeats">Nombre de places disponibles pour des passagers</label>
+                <input type="number" class="form-control" id="inputSeats" name="seatAvailable" required value="2" min="1" max="6">
+
+                <label for="inputDate">Heure de départ</label>
+                <input type="datetime-local" class="form-control" id="inputDate" name="date" required>
+
                 <button type="submit" class="btn btn-primary">Valider</button>
 
-                <?php if (isset($_SESSION['ERROR_LOGIN'])): ?>
-                        <p class='text-center alert alert-danger mt-2' role='alert'><?= $_SESSION['ERROR_LOGIN'] ?></p>
-                <?php endif ?>
-                <a href="../index.php?action=signup" class="text-center">Pas encore de compte ? Inscrivez vous !</a>
         </form>
+
+
+
+
+
+
+
+
+
 
 <?php $content = ob_get_clean(); ?>
 

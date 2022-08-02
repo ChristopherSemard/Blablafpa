@@ -27,4 +27,6 @@
         <!-- Footer -->
         <?php include_once('partials/footer.php');?>
     </body>
+    
+    <script src="./assets/js/travel.js"></script>
 </html>
