@@ -47,8 +47,13 @@ function addTravelSteps($travelSteps, $bdd){
 
 
 function getTravelById($id, $bdd){
+    $statement = $bdd->prepare('SELECT * FROM travel WHERE travel_id = ?');
+    $statement->execute(array($id));
+    $travel = $statement-> fetch();
+    return $travel;
 
     // REQUETE SQL POUR ALLER CHERCHER LE TRAJET PAR SON ID FOURNI EN PARAMETRE
+
 
     // RETURN LE TRAVEL TROUVE
     
