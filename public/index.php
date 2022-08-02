@@ -4,6 +4,8 @@ require_once('../src/controllers/Homepage.php');
 require_once('../src/controllers/Login.php');
 require_once('../src/controllers/Signup.php');
 require_once('../src/controllers/Search.php');
+require_once('../src/controllers/PublishTravel.php');
+require_once('../src/controllers/Logout.php');
 
 
 try {
@@ -30,6 +32,9 @@ try {
             displayFormSearch();
             var_dump(extract($_POST));
         }
+        elseif ($_GET['action'] === 'publish-travel') {
+            displayFormPublishTravel();
+        } 
     } else {
         homepage();
     }
