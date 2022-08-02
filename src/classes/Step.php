@@ -1,24 +1,23 @@
 <?php
 class Step{
     //private $id;
-    private $locationStart;
-    private $locationFinish;
+    private $stepLocation;
+    private int $order;
     //private $travel_id;
-    private $seatAvailable;
+    //private $seatAvailable;
     
 
-    public function __construct($locationStart,$locationFinish,$seatAvailable)
-    {
+    public function __construct($stepLocation, int $order =1){
         //$this->travelId=$travelId;
-        $this->locationStart=$locationStart;
-        $this->locationFinish=$locationFinish;
-        $this->seatAvailable=$seatAvailable;
+        $this->stepLocation=$stepLocation;
+        $this->order=$order;
     }
 
-    public function getAvailableSeat(){
-        return $this->seatAvailable;
+    public function getStepLocation(){
+        return $this->stepLocation;
     }
-    public function getStep(){
-        return $this->locationStart . 'to' . $this->locationFinish;
+
+    public function getStepOrder(){
+        return $this->order;
     }
 }

@@ -9,9 +9,6 @@
 <input type="submit" value="Rechercher">
 </form>
 
-<!-- <?php if(isset($newTrajetList)){
-//var_dump($newTrajetList);
-}?> -->
 <?php if(isset($availableTravel) && count($availableTravel)>0){
 echo('<pre>');
 var_dump($availableTravel);
