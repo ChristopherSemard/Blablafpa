@@ -10,7 +10,7 @@ function displayFormSignup(){
 function submitSignup($input){
     require_once('../src/pdo/pdo.php');
     session_start();
-
+    
     if(isset($input['afpaId']) && isset($input['email']) && isset($input['firstName']) && isset($input['lastName']) && isset($input['password']) && isset($input['password_retype'])){
 
         $idAfpa = htmlspecialchars($input['afpaId']);
@@ -87,5 +87,6 @@ function submitSignup($input){
         $_SESSION['ERROR_SIGNIN_INPUT'] = $input;
         header('Location: ../index.php?action=signin');
         exit;
+
     }
 }
