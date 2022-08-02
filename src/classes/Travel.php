@@ -8,12 +8,14 @@ class Travel
     private $start;
     private $destination;
     private $steps = [];
+    private $maxSeat;
 
-    function __construct($start,$destination,$steps=[])
+    function __construct($start,$destination,$steps=[],$seat=3)
     {
         $this->start = $start;
         $this->destination =$destination;
         $this->steps = $steps;
+        $this->maxSeat = $seat;
         
     }
     public function getStart(){
@@ -24,6 +26,9 @@ class Travel
     }
     public function getSteps(){
         return $this->steps;
+    }
+    public function getMaxSeat(){
+        return $this->maxSeat;
     }
     public function listStep(){
         $listStep = [];

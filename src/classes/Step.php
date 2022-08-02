@@ -4,13 +4,14 @@ class Step{
     private $stepLocation;
     private int $order;
     //private $travel_id;
-    //private $seatAvailable;
+    private $seatAvailable;
     
 
-    public function __construct($stepLocation, int $order =1){
+    public function __construct($stepLocation, int $order =1,){
         //$this->travelId=$travelId;
         $this->stepLocation=$stepLocation;
         $this->order=$order;
+        $this->seatAvailable--;
     }
 
     public function getStepLocation(){
@@ -19,5 +20,8 @@ class Step{
 
     public function getStepOrder(){
         return $this->order;
+    }
+    public function getSeatAvailable(){
+        return $this->seatAvailable;
     }
 }

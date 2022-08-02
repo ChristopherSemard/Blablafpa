@@ -6,6 +6,10 @@
     <label for="">Arrive</label>
     <input type="text" class="cityAutocomplete" name='finish' placeholder="arrive">
 </div>
+</div>
+    <label for="">Places</label>
+    <input type="number" class="number" name='seat' placeholder="Nombre de places">
+</div>
 <input type="submit" value="Rechercher">
 </form>
 
