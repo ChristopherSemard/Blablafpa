@@ -1,11 +1,10 @@
 <?php
 
 function displayFormLogin(){
-
     session_start();
-        
     require('../templates/login.php');
-    
+    unset($_SESSION['ERROR_LOGIN']);
+    unset($_SESSION['ERROR_LOGIN_INPUT']);
 }
 
 function submitLogin(){
@@ -16,7 +15,7 @@ function submitLogin(){
         $idAfpa = htmlspecialchars($_POST['afpaId']);
         $password = htmlspecialchars($_POST['password']);
 
-        $check = $bdd->prepare('SELECT afpa_id, email, password FROM users WHERE afpa_id = ?');
+        $check = $bdd->prepare('SELECT * FROM users WHERE afpa_id = ?');
         $check->execute(array($idAfpa));
         $data = $check-> fetch();
         $row = $check->rowCount();
@@ -25,16 +24,17 @@ function submitLogin(){
         {
             if(filter_var($idAfpa, FILTER_VALIDATE_INT))
             {
-                if($data['password'] === $password)
+                if(password_verify($password, $data['password']))
                 {
-                    $_SESSION['LOGGED_USER'] = $data['afpa_id'];
+                    $_SESSION['LOGGED_USER'] = [
+                        'userId' => $data['user_id'],
+                        'afpaId' => $data['afpa_id'],
+                        'firstname' => $data['firstname'],
+                        'lastname' => $data['lastname'],
+                        'email' => $data['email'],
+                    ];
                     header('Location: index.php');
                 }
-                // if(password_verify($password, $data['password']))
-                // {
-                //     $_SESSION['LOGGED_USER'] = $data['afpa_id'];
-                //     header('Location: index.php');
-                // }
                 else {
                     $_SESSION['ERROR_LOGIN'] = 'Le pseudo et/ou le mot de passe est incorrect.';
                     $_SESSION['ERROR_LOGIN_INPUT'] = $_POST;

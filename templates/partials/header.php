@@ -1,4 +1,4 @@
-<header class="p-3 text-white border-bottom bg-light vh-10">
+<header class="p-3 border-bottom bg-light vh-10">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between">
             <a href="../index.php" class="mb-2 mb-lg-0 text-decoration-none">
@@ -14,7 +14,7 @@
 
             <?php  if(isset($_SESSION['LOGGED_USER'])) :?>
                 <div class="text-end d-flex align-items-center gap-2">
-                    <p class="m-auto"><?= $_SESSION['LOGGED_USER']['pseudo'] ?></p>
+                    <p class="m-auto"><?= $_SESSION['LOGGED_USER']['firstname'] .' '. $_SESSION['LOGGED_USER']['lastname'] ?></p>
                     <form method="POST" action="../index.php?action=logout">
                         <button class="btn btn-danger">Deconnexion</button>
                     </form>
