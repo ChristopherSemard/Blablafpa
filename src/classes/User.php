@@ -9,7 +9,7 @@ class User
     private $email;
     private $password;
 
-    public function __construct($idAfpa,$firstName,$lastName,$email,$password) {
+    public function __construct($idAfpa = null,$firstName = null,$lastName = null,$email = null,$password = null) {
 		$this->idAfpa=$idAfpa;
 		$this->firstName=$firstName;
         $this-> lastName=$lastName;
@@ -57,6 +57,13 @@ class User
         $this->password=$password;
     }
     
+
+    public function getUserByAfpaId($bdd, $idAfpa){
+        $check = $bdd->prepare('SELECT afpa_id, email, password FROM users WHERE afpa_id = ?');
+        $check->execute(array($idAfpa));
+        $data = $check-> fetch();
+        return $data;
+    }
 
 
 }

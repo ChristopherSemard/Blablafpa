@@ -3,12 +3,13 @@
 require_once('../src/controllers/Homepage.php');
 require_once('../src/controllers/Login.php');
 require_once('../src/controllers/Signup.php');
+require_once('../src/controllers/Search.php');
+require_once('../src/controllers/PublishTravel.php');
 require_once('../src/controllers/Logout.php');
 
 
-
 try {
-    if (isset($_GET['action']) && $_GET['action'] !== '') {
+    if (isset($_GET['action']) && $_GET['action']){
         if ($_GET['action'] === 'login') {
             displayFormLogin();
         } elseif ($_GET['action'] === 'submitlogin') {
@@ -26,7 +27,20 @@ try {
             }
             submitSignup($input); 
         } elseif ($_GET['action'] === 'logout') {
-            logout();
+            //logout();
+        } elseif($_GET['action']==='search'){
+            displayFormSearch();
+            var_dump(extract($_POST));
+        }
+        elseif ($_GET['action'] === 'publish-travel') {
+            displayFormPublishTravel();
+        } 
+        elseif ($_GET['action'] === 'submit-publish-travel') {
+            $input = null;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
+            }
+            submitPublishTravel($input);
         } 
     } else {
         homepage();
@@ -35,3 +49,5 @@ try {
     $errorMessage = $e->getMessage();
     echo($errorMessage);
 }
+?>
+<script src="./assets/js/autocomplete.js"></script>
