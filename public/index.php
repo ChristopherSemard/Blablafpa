@@ -29,8 +29,7 @@ try {
         } elseif ($_GET['action'] === 'logout') {
             //logout();
         } elseif($_GET['action']==='search'){
-            displayFormSearch();
-            var_dump(extract($_POST));
+            makeSearch();
         }
         elseif ($_GET['action'] === 'publish-travel') {
             displayFormPublishTravel();

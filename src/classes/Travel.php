@@ -3,29 +3,27 @@
 
 include('Step.php');
 
-class Travel{
-    private $travelId;
-    private $userId;
-    private $dateStart;
-    private $seatAvailable;
-    private $listSteps;
+class Travel
+{
+    private $start;
+    private $destination;
+    private $steps = [];
 
-    public function __construct($travelId,$userId,$dateStart,$seatAvailable,$steps=[])
+    function __construct($start,$destination,$steps=[])
     {
-        $this->travelId=$travelId;
-        $this->userId=$userId;
-        $this->dateStart=$dateStart;
-        $this->seatAvailable=$seatAvailable;
-        $this->listSteps = $steps;
+        $this->start = $start;
+        $this->destination =$destination;
+        $this->steps = $steps;
+        
     }
-    public function addStep($step){
-        array_push($this->listSteps,$step);
+    public function getStart(){
+        return $this->start;
     }
-
+    public function getDestination(){
+        return $this->destination;
+    }
     public function getSteps(){
-        return $this->listSteps;
+        return $this->steps;
     }
-}
-$travelTest = new Travel(1,1,'2022/08/01',3,[]);
 
-$travelTest->addStep(new Step('Rouen','Paris',0));
+};
