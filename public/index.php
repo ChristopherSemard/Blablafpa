@@ -35,6 +35,13 @@ try {
         elseif ($_GET['action'] === 'publish-travel') {
             displayFormPublishTravel();
         } 
+        elseif ($_GET['action'] === 'submit-publish-travel') {
+            $input = null;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
+            }
+            submitPublishTravel($input);
+        } 
     } else {
         homepage();
     }
