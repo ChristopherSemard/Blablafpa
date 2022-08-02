@@ -20,7 +20,7 @@ function submitSignup($input){
         $password = htmlspecialchars($input['password']);
         $password_retype = htmlspecialchars($input['password_retype']);
 
-        $regexPassword = "/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/";
+        $regexPassword = "/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/";
 
 
         $check = $bdd->prepare('SELECT afpa_id, firstname, lastname, email, password FROM users WHERE afpa_id = ?');
@@ -45,8 +45,8 @@ function submitSignup($input){
         }
 
         //     // On verifie que la longueur du pseudo <= 60
-        else if(strlen($idAfpa) <= 60){ 
-            $_SESSION['ERROR_SIGNIN'] = 'Le pseudo existe déjà, merci d\'en choisir un autre.';
+        else if(strlen($idAfpa) > 60){ 
+            $_SESSION['ERROR_SIGNIN'] = 'L\'ID Afpa n\'est pas valide, merci d\'en choisir un autre.';
             $_SESSION['ERROR_SIGNIN_INPUT'] = $input;
             header('Location: index.php?action=signup');
             exit;
@@ -54,7 +54,7 @@ function submitSignup($input){
 
         // // On verifie que la longueur du mail <= 100    
         else if(strlen($email) > 150){ 
-            $_SESSION['ERROR_SIGNIN'] = 'Le pseudo existe déjà, merci d\'en choisir un autre.';
+            $_SESSION['ERROR_SIGNIN'] = 'Le mail est trop long, merci d\'en choisir un autre.';
             $_SESSION['ERROR_SIGNIN_INPUT'] = $input;
             header('Location: index.php?action=signup');
             exit;
