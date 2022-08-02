@@ -3,20 +3,35 @@
 
 include('Step.php');
 
-class Travel
-{
+class Travel{
+    private $travelId;
     private $start;
     private $destination;
-    private $steps = [];
-    private $maxSeat;
+    private $userId;
+    private $dateStart;
+    private $seatAvailable;
+    private $ListSteps = [];
 
-    function __construct($start,$destination,$steps=[],$seat=3)
+    public function __construct($start, $destination, $userId, $dateStart, $seatAvailable, $steps, $travelId = null)
     {
-        $this->start = $start;
-        $this->destination =$destination;
-        $this->steps = $steps;
-        $this->maxSeat = $seat;
-        
+        $this->travelId=$travelId;
+        $this->start=$start;
+        $this->destination=$destination;
+        $this->userId=$userId;
+        $this->dateStart=$dateStart;
+        $this->seatAvailable=$seatAvailable;
+        $this->addToListSteps($start);
+        foreach ($steps as $key => $step) {
+            $this->addToListSteps($step);
+        }
+        $this->addToListSteps($destination);
+    }
+
+    public function setTravelId($id){
+        $this->travelId = $id;
+    }
+    public function getTravelId(){
+        return $this->travelId;
     }
     public function getStart(){
         return $this->start;
@@ -24,27 +39,24 @@ class Travel
     public function getDestination(){
         return $this->destination;
     }
-    public function getSteps(){
-        return $this->steps;
+    public function getUserId(){
+        return $this->userId;
     }
-    public function getMaxSeat(){
-        return $this->maxSeat;
+    public function getDateStart(){
+        return $this->dateStart;
     }
-    public function listStep(){
-        $listStep = [];
-        foreach ($this->steps as $step) {
-            $order = $step->getStepOrder();
-            $stepLocation = $step->getStepLocation();
-            foreach($step as $order => $stepLocation){
-                array_push($listStep,$step);
-            }
-        }
-        return $listStep;
+    public function getSeatAvailable(){
+        return $this->seatAvailable;
     }
 
-};
+    public function addToListSteps($step){
+        array_push($this->ListSteps, $step);
+    }
+    public function getListSteps(){
+        return $this->ListSteps;
+    }
 
 
-// $trajetList = [new Travel('Rouen','Paris',[new Step('Dreux',2),new Step('Evreux',1)]), new Travel('Lille','Rouen',[new Step('Amiens')]),new Travel('Rouen','Le Mans'),new Travel('Paris','Le Mans'), new Travel('Rouen','Lille',[new Step('Amiens')])];
-// $trajetTest = new Travel('Rouen','Paris',[new Step('Dreux',2),new Step('Evreux',1)]);
-// var_dump($trajetTest->listStep());
+
+
+}
