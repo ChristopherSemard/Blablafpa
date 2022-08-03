@@ -11,7 +11,7 @@ require_once('../src/controllers/Booking.php');
 
 
 try {
-    if (isset($_GET['action']) && $_GET['action']){
+    if (isset($_GET['action']) && $_GET['action']) {
         if ($_GET['action'] === 'login') {
             displayFormLogin();
         } elseif ($_GET['action'] === 'submitlogin') {
@@ -19,15 +19,15 @@ try {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input = $_POST;
             }
-            submitLogin($input); 
+            submitLogin($input);
         } elseif ($_GET['action'] === 'signup') {
             displayFormSignup();
-        }  elseif ($_GET['action'] === 'submitsignup') {
+        } elseif ($_GET['action'] === 'submitsignup') {
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input = $_POST;
             }
-            submitSignup($input); 
+            submitSignup($input);
         } elseif ($_GET['action'] === 'logout') {
             logout();
         } elseif($_GET['action']==='search'){
@@ -39,15 +39,13 @@ try {
         }
         elseif ($_GET['action'] === 'publish-travel') {
             displayFormPublishTravel();
-        } 
-        elseif ($_GET['action'] === 'travel') {
+        } elseif ($_GET['action'] === 'travel') {
             if (isset($_GET['id'])) {
                 $id  =  $_GET['id'];
                 displayTravel($id);
             } else {
                 homepage();
             }
-            
         } 
         elseif ($_GET['action'] === 'booking') {
             if (isset($_GET['id'])) {
@@ -70,12 +68,18 @@ try {
                 $input = $_POST;
             }
             submitPublishTravel($input);
-        } 
+        } elseif ($_GET['action'] === 'submit-message') {
+            $input = null;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
+            }
+            submitMessage($input);
+        }
     } else {
         homepage();
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
-    echo($errorMessage);
+    echo ($errorMessage);
 }
 ?>
