@@ -8,8 +8,6 @@ function displayTravel($id)
         require_once('../src/pdo/pdo.php');
         require_once('../src/Repository/TravelRepository.php');
         require_once('../src/Repository/UserRepository.php');
-        // var_dump($id);
-
 
         $travel=getTravelById($id, $bdd);
         // var_dump($travel);
@@ -18,4 +16,7 @@ function displayTravel($id)
         // var_dump($user);
 
         require('../templates/travel.php');
+        
+        unset($_SESSION['ERROR_BOOKING-TRAVEL']);
+        unset($_SESSION['SUCCESS_BOOKING-TRAVEL']);
     }

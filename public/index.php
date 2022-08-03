@@ -7,6 +7,7 @@ require_once('../src/controllers/Search.php');
 require_once('../src/controllers/PublishTravel.php');
 require_once('../src/controllers/Logout.php');
 require_once('../src/controllers/Travel.php');
+require_once('../src/controllers/Booking.php');
 
 
 try {
@@ -47,6 +48,21 @@ try {
                 homepage();
             }
             
+        } 
+        elseif ($_GET['action'] === 'booking') {
+            if (isset($_GET['id'])) {
+                $id  =  $_GET['id'];
+                displayFormBooking($id);
+            } else {
+                homepage();
+            }
+            
+        } elseif ($_GET['action'] === 'submit-booking') {
+            $input = null;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
+            }
+            submitBooking($input); 
         } 
         elseif ($_GET['action'] === 'submit-publish-travel') {
             $input = null;
