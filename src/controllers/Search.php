@@ -15,7 +15,6 @@ function makeSearch($input){
     $finish = $input['finish'];
     
     $availableTravel=getAllTravel($start,$finish,$bdd);
-    
     require('../templates/search.php');
 
 }
