@@ -23,8 +23,6 @@ function addBooking($booking, $travelSteps, $travel, $bdd){
     $booking->setBookingId($lastId);
 
     $travelListSteps = json_decode($travel['list_steps']);
-    var_dump($travelListSteps);
-    var_dump($travelSteps);
 
     $indexStart = array_search($booking->getCityStart(), $travelListSteps);
     $indexFinish = array_search($booking->getCityDestination(), $travelListSteps);
