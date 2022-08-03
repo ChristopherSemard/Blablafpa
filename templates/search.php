@@ -1,3 +1,8 @@
+<?php $title = "Trouver un trajet"; ?>
+
+
+<?php ob_start(); ?>
+
 <form method="post">
 <div class="input">
     <label for="">Depart</label>
@@ -15,8 +20,12 @@
 
 <?php if(isset($availableTravel) && count($availableTravel)>0){
 echo('<pre>');
+echo('<pre>');
 var_dump($availableTravel);
 }else{ print('no travail available');}?>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="./assets/js/autocomplete.js"></script>
+
+<?php $content = ob_get_clean(); ?>
+
+
+<?php require('base.php') ?>
