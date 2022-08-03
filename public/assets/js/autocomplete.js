@@ -1,4 +1,7 @@
+
 let inputsAutocomplete = document.querySelectorAll('.cityAutocomplete')
+let selectContainer = document.querySelector('.selectContainer');
+
 inputsAutocomplete.forEach(input => {
     input.addEventListener('input',()=>{autocomplete(this.event.target)})
 });
@@ -9,7 +12,9 @@ function autocomplete(input){
 
 function htmlAutoComplete(json){
     let data = json.features
+    
     data.forEach(city => {
-        console.log(city.properties.city,city.properties.context)
+        //console.log(city.properties.city)
+        selectContainer.innerHTML = `<option value="${city.properties.city}"><strong>${city.properties.city}</strong> ${city.properties.context}</option>`
     });
 }

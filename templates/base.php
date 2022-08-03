@@ -29,4 +29,5 @@
     </body>
     
     <script src="./assets/js/travel.js"></script>
+    <script src="./assets/js/autocomplete.js"></script>
 </html>
