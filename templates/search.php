@@ -27,13 +27,23 @@
             </div>
             <button type="submit" class="btn bg-success mt-2">Rechercher</button>
         </form>
-        <?php if (isset($availableTravel) && count($availableTravel) > 0) {
-            echo ('<pre>');
-            var_dump($availableTravel);
-            echo ('<pre>');
-        } else {
+        <?php if (isset($availableTravel) && count($availableTravel) > 0) :?>
+            <?php foreach ($availableTravel as $travel) :?>
+                <a href="../index.php/?action=travel&id=<?=$travel['travel_id']?>">
+                    <div class="card" style="width: 18rem;display:inline-block;">
+                        <div class="card-body">
+                            <h5 class="card-title"><?=$travel['start']?></h5>
+                            <h6 class="card-subtitle text-muted"> |   <?=str_replace(['[',']','"',','],['','','',', '],$travel['list_steps'])?></h6>
+                            <h5 class="card-title"><?=$travel['destination']?></h5>
+                            <h6 class="card-subtitle text-muted">UserId : <?=$travel['user_id']?></h6>
+                        </div>
+                     </div>
+                </a>
+            <?php endforeach ?>
+        <?php else: ?>
             print('no travail available');
         } ?>
+        <?php endif?>
     </div>
 </main>
 

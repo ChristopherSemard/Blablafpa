@@ -1,19 +1,19 @@
 <?php
 
-require_once('../src/Repository/travelsRepository.php');
-
 function displayFormSearch(){
     session_start();  
     require('../templates/search.php');
   
 }
-function makeSearch(){
+function makeSearch($start,$finish){
+    require_once('../src/pdo/pdo.php');
+    require_once('../src/classes/Travel.php');
+    require_once('../src/Repository/TravelRepository.php');
   
     session_start();  
     
-    if(isset($_POST['start'],$_POST['finish'],$_POST['seat'])&& $_POST['start'] && $_POST['finish'] && $_POST['seat']){
-        $availableTravel = searchTravel($_POST['start'],$_POST['finish'],$_POST['seat']);
-    }
-
+    $availableTravel=getAllTravel($start,$finish,$bdd);
+    
     require('../templates/search.php');
+
 }
