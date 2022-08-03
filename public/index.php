@@ -49,4 +49,3 @@ try {
     echo($errorMessage);
 }
 ?>
-<script src="./assets/js/autocomplete.js"></script>
