@@ -6,6 +6,7 @@ require_once('../src/controllers/Signup.php');
 require_once('../src/controllers/Search.php');
 require_once('../src/controllers/PublishTravel.php');
 require_once('../src/controllers/Logout.php');
+require_once('../src/controllers/Travel.php');
 
 
 try {
@@ -27,12 +28,21 @@ try {
             }
             submitSignup($input); 
         } elseif ($_GET['action'] === 'logout') {
-            //logout();
+            logout();
         } elseif($_GET['action']==='search'){
             makeSearch();
         }
         elseif ($_GET['action'] === 'publish-travel') {
             displayFormPublishTravel();
+        } 
+        elseif ($_GET['action'] === 'travel') {
+            if (isset($_GET['id'])) {
+                $id  =  $_GET['id'];
+                displayTravel($id);
+            } else {
+                homepage();
+            }
+            
         } 
         elseif ($_GET['action'] === 'submit-publish-travel') {
             $input = null;

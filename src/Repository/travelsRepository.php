@@ -24,9 +24,9 @@ function searchTravel($start,$finish,$seat){
                 && ($travel->getDestination() == $finish || ($step == $finish))
                 && ($travel->getSeatAvailable() > $seat)
             ){
-                echo('<pre>');
-                var_dump($indeOfStep);
-                echo('<pre>');
+                // echo('<pre>');
+                // var_dump($indeOfStep);
+                // echo('<pre>');
                 if(!in_array($travel,$availableTravel)){
                     array_push($availableTravel,$travel);
                 }

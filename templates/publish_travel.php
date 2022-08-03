@@ -4,6 +4,12 @@
 
 <?php ob_start(); ?>
 
+
+        <!-- Main -->
+        <main class="container-lg py-5 m-vh-80">
+
+
+
         <form class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submit-publish-travel">
 
                 <label for="inputStart">Ville de départ</label>
@@ -30,7 +36,7 @@
                 
         </select>
 
-
+</main>
 
 
 
