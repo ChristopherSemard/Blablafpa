@@ -51,7 +51,7 @@ function getTravelSteps($id, $bdd){
 }
 
 function getAllTravel($start,$finish,$bdd){
-    $allTravelRequest = "SELECT  * FROM travel WHERE list_steps LIKE '%$start%$finish%'";
+    $allTravelRequest = "SELECT  * FROM travel t INNER JOIN users u ON u.user_id = t.user_id WHERE list_steps LIKE '%$start%$finish%' GROUP BY t.travel_id";
     $allTravelStatement = $bdd->query($allTravelRequest);
     $allTravel = $allTravelStatement->fetchAll();
     return $allTravel;
