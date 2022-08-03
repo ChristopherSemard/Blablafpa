@@ -1,13 +1,11 @@
-<?php $title = "Trajet"; ?>
+<?php $title = $travel['start'] .'-'. $travel['destination']; ?>
 
 
 
 <?php ob_start(); ?>
-<?php var_dump($travel); ?>
-<?php var_dump($user); ?>
 
         <!-- Main -->
-        <main class="container-lg py-5 col-lg-6 m-vh-80">
+        <main class="container-lg py-5 col-lg-8 m-vh-80">
 
         <?php if (isset($_SESSION['ERROR_BOOKING-TRAVEL'])): ?>
           <p class='text-center alert alert-danger mt-2' role='alert'><?= $_SESSION['ERROR_BOOKING-TRAVEL'] ?></p>
@@ -27,9 +25,8 @@
 
     <h2><?= $travel['start'] .'-'. $travel['destination'] ?> | <?= $dateFormat ?> à <?= $heureFormat ?></h2>
 
-
-            <div class="card p-3 py-4 d-flex flex-row">
-                <div class="text-center p-1 me-3 d-flex">
+            <div class="card w-100 shadow-sm p-3 py-4 d-flex flex-row gap-4 mb-3">
+                <div class="text-center p-1  d-flex">
                     <img class="m-auto rounded-circle" src="https://i.imgur.com/bDLhJiP.jpg" width="100" >
                 </div>
                 <div class="w-100">
@@ -38,16 +35,17 @@
                         <p class=" h-5"><strong>Email : </strong><?= $user['email'] ?></p>
                     </div>
                     <div class="buttons">
-                        <button class="btn btn-outline-primary ml-3 px-4">Message</button>
-                        <button class="btn btn-primary px-4 ms-2">Contact</button>
+                        <button class="btn  border-primary  ml-3 px-4">Message</button>
+                        <button class="btn background-primary px-4 ms-2">Contact</button>
                     </div>
                 </div>
             </div>
 
-    <p class="h4 mt-5">Places disponibles : <?= $travel["seat_available"] ?> <i class="fa-solid fa-user"></i> </p>
+    <div class="shadow-sm  p-3 rounded d-flex flex-column  mb-3">
+      
+    <p class="h4 mb-2">Places disponibles : <?= $travel["seat_available"] ?> <i class="fa-solid fa-user"></i> </p>
 
-    <div class=" p-3 rounded ">
-    <div class="vtl  ">
+      <div class="vtl  ">
           <div class="event">
               <p class="date">Départ</p>
               <p class="txt"><?= $travel["start"] ?></p>
@@ -69,10 +67,10 @@
           </div>
 
       </div>
+
+<a class=" btn background-gradient  mt-4" href="../index.php?action=booking&id=<?= $travel['travel_id'] ?>" >Réservez</a>
+
     </div>
-
-
-    <a class="w-100 btn  background-gradient  mt-2 mb-4" href="../index.php?action=booking&id=<?= $travel['travel_id'] ?>" >Réservez</a>
 
 
     <?php  if(isset($_SESSION['LOGGED_USER'])) :?>
@@ -87,9 +85,32 @@
 
       </form>
 
-      <?php var_dump($messages); ?>
+      <?php  if($messages) :?>
+        
+      <div class="mt-4">
+
+        <?php  foreach ($messages as $key => $message)  :?>
+          
+
+        <?php $date = New DateTime($message['message_date']);
+        $dateFormat = $date->format('d/m/Y à H:i');?>  
+        <div class="card mt-2 p-3 py-2 shadow-sm">
+            <div class="d-flex justify-content-between align-items-center">
+              <p>Par <strong><?= $message['firstname'] . $message['lastname']?></strong></p>
+              <p>Le <?= $dateFormat ?></p>
+            </div>
+            <div>
+              <p><?= $message['content'] ?></p>
+            </div>
+          </div>
+
+        <?php endforeach ?>
+      </div>
+      <?php endif ?>
+
     <?php endif ?>
 
+    
 
 </main>
 
