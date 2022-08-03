@@ -18,7 +18,7 @@
                         <label for="">Arrivée</label>
                         <input type="text" class="cityAutocomplete form-control" name='finish' placeholder="Ville d'arrivée">
                     </div>
-                    <button type="submit" class="btn background-gradient border-none mt-2" >Rechercher</button>
+                    <button type="submit" class="btn background-gradient mt-2" >Rechercher</button>
                 </form>
             </div>
         </main>
