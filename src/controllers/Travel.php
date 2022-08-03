@@ -9,7 +9,6 @@ function displayTravel($id)
         require_once('../src/Repository/TravelRepository.php');
         require_once('../src/Repository/UserRepository.php');
 
-
         $travel=getTravelById($id, $bdd);
         // var_dump($travel);
         

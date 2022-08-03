@@ -12,7 +12,7 @@ class Travel{
     private $seatAvailable;
     private $ListSteps = [];
 
-    public function __construct($start, $destination, $userId, $dateStart, $seatAvailable, $steps, $travelId = null)
+    public function __construct($start, $destination, $userId, $dateStart, $seatAvailable, $steps=[], $travelId = null)
     {
         $this->travelId=$travelId;
         $this->start=$start;
@@ -20,11 +20,11 @@ class Travel{
         $this->userId=$userId;
         $this->dateStart=$dateStart;
         $this->seatAvailable=$seatAvailable;
-        $this->addToListSteps($start);
+        $this->start=$start;
+        $this->destination=$destination;
         foreach ($steps as $key => $step) {
             $this->addToListSteps($step);
         }
-        $this->addToListSteps($destination);
     }
 
     public function setTravelId($id){
@@ -53,8 +53,10 @@ class Travel{
         array_push($this->ListSteps, $step);
     }
     public function getListSteps(){
-        return $this->ListSteps;
+        $arr = $this->ListSteps;
+        array_unshift($arr,$this->start);
+        array_push($arr,$this->destination);
+        return $arr;
     }
-
 
 }
