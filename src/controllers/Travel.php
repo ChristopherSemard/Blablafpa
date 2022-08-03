@@ -12,10 +12,10 @@ function displayTravel($id)
 
 
         $travel=getTravelById($id, $bdd);
-        var_dump($travel);
+        // var_dump($travel);
         
         $user = getUserById($travel["user_id"], $bdd);
-        var_dump($user);
+        // var_dump($user);
 
         require('../templates/travel.php');
     }
