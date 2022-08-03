@@ -31,11 +31,11 @@ try {
         } elseif ($_GET['action'] === 'logout') {
             logout();
         } elseif($_GET['action']==='search'){
-            if (isset($_POST['start'],$_POST['finish'])) {
-                $start = $_POST['start'];
-                $finish = $_POST['finish'];
-                makeSearch($start,$finish);
-            }else{displayFormSearch();}
+            $input = null;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
+            }
+            makeSearch($input);
         }
         elseif ($_GET['action'] === 'publish-travel') {
             displayFormPublishTravel();
