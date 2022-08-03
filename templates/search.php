@@ -1,19 +1,50 @@
-<form method="post">
-<div class="input">
-    <label for="">Depart</label>
-    <input type="text" class="cityAutocomplete" name='start'placeholder="depart">
-</div>
-    <label for="">Arrive</label>
-    <input type="text" class="cityAutocomplete" name='finish' placeholder="arrive">
-</div>
-<input type="submit" value="Rechercher">
-</form>
+<?php $title = "Trouver un trajet"; ?>
 
-<input id="city" name="city" class="form-control" autocomplete="on" data-country="jp">
-<?php if(isset($newTrajetList)){
-var_dump($newTrajetList);
-}?>
-<?php if(isset($availableTravel) && count($availableTravel)>0){
-echo('<pre>');
-var_dump($availableTravel);
-}else{ print('no travail available');}?>
+
+<?php ob_start(); ?>
+
+<main class="container d-flex flex-column m-vh-80">
+
+        <form class="mb-3" method="post">
+        <h2 class="color-secondary">Recherchez un trajet !</h2>
+            <div class="input">
+                <label for="">Départ</label>
+                    <input type="text" value="<?= isset($input) ? $input['start'] : '' ?>" class="cityAutocomplete form-control" name='start' placeholder="Ville de départ">
+                    <label for="">Arrivée</label>
+                    <input type="text" value="<?= isset($input) ? $input['finish'] : '' ?>" class="cityAutocomplete form-control" name='finish' placeholder="Ville d'arrivée">
+                    <!-- <label for="">Places</label>
+                    <input type="number" value="<?= $_POST['seat'] ?>" class="number form-control" name='seat' placeholder="Nombre de places"> -->
+            </div>
+            <button type="submit" class="btn background-gradient mt-2" >Rechercher</button>
+        </form>
+
+
+    <div class="d-flex flex-wrap flex-column align-items-center">
+        <?php if (isset($availableTravel) && count($availableTravel) > 0) :?>
+            <?php foreach ($availableTravel as $travel) :?>
+                <a class="w-100" href="../index.php/?action=travel&id=<?=$travel['travel_id']?>">
+                    <div class="card w-100" style="display:inline-block;">
+                        <div class="card-body w-100" >
+                            <h5 class="card-title"><?=$travel['start']?></h5>
+                            <h6 class="card-subtitle text-muted"> |   <?=str_replace(['[',']','"',','],['','','',', '],$travel['list_steps'])?></h6>
+                            <h5 class="card-title"><?=$travel['destination']?></h5>
+                            <h6 class="card-subtitle text-muted">UserId : <?=$travel['user_id']?></h6>
+                        </div>
+                     </div>
+                </a>
+            <?php endforeach ?>
+        <?php else: ?>
+                    
+            <p class='text-center alert alert-danger mt-2' role='alert'>Aucun trajet trouvé</p>
+        <?php endif?>
+    
+    </div>
+</main>
+
+
+<script src="./assets/js/autocomplete.js"></script>
+
+<?php $content = ob_get_clean(); ?>
+
+
+<?php require('base.php') ?>

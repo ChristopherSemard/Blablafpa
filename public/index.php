@@ -7,6 +7,7 @@ require_once('../src/controllers/Search.php');
 require_once('../src/controllers/PublishTravel.php');
 require_once('../src/controllers/Logout.php');
 require_once('../src/controllers/Travel.php');
+require_once('../src/controllers/Booking.php');
 
 
 try {
@@ -29,10 +30,14 @@ try {
             submitSignup($input);
         } elseif ($_GET['action'] === 'logout') {
             logout();
-        } elseif ($_GET['action'] === 'search') {
-            displayFormSearch();
-            var_dump(extract($_POST));
-        } elseif ($_GET['action'] === 'publish-travel') {
+        } elseif($_GET['action']==='search'){
+            $input = null;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
+            }
+            makeSearch($input);
+        }
+        elseif ($_GET['action'] === 'publish-travel') {
             displayFormPublishTravel();
         } elseif ($_GET['action'] === 'travel') {
             if (isset($_GET['id'])) {
@@ -41,7 +46,23 @@ try {
             } else {
                 homepage();
             }
-        } elseif ($_GET['action'] === 'submit-publish-travel') {
+        } 
+        elseif ($_GET['action'] === 'booking') {
+            if (isset($_GET['id'])) {
+                $id  =  $_GET['id'];
+                displayFormBooking($id);
+            } else {
+                homepage();
+            }
+            
+        } elseif ($_GET['action'] === 'submit-booking') {
+            $input = null;
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $input = $_POST;
+            }
+            submitBooking($input); 
+        } 
+        elseif ($_GET['action'] === 'submit-publish-travel') {
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input = $_POST;
@@ -62,4 +83,3 @@ try {
     echo ($errorMessage);
 }
 ?>
-<script src="./assets/js/autocomplete.js"></script>

@@ -11,7 +11,7 @@
             <img class="image-background" src="./assets/images/background.jpg" alt="">
             <div class="form-on-background p-4 rounded" >
                 <h2 class="color-secondary" >Recherchez un trajet !</h2>
-                <form method="post">
+                <form method="post" action="./index.php?action=search">
                     <div class="input">
                         <label for="">Départ</label>
                         <input type="text" class="cityAutocomplete form-control" name='start'placeholder="Ville de départ">

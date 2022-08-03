@@ -10,18 +10,9 @@ function displayTravel($id)
     require_once('../src/Repository/UserRepository.php');
     require_once('../src/Repository/MessageRepository.php');
 
-
-
     $travel = getTravelById($id, $bdd);
-    // var_dump($travel);
-
     $user = getUserById($travel["user_id"], $bdd);
     $messages = getMessage($id, $bdd);
-
-
-    // var_dump($user);
-
-
 
     require('../templates/travel.php');
 }

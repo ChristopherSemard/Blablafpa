@@ -3,10 +3,7 @@
 
 
 function addTravel($travel, $bdd){
-
     require_once('../src/classes/Travel.php');
-
-    
     $statement = $bdd->prepare('INSERT INTO travel (start, destination, date_start, seat_available, list_steps, user_id) VALUES (:start, :destination, :date_start, :seat_available, :list_steps, :user_id)');
     $statement->execute(  [
     'start' => $travel->getStart(),
@@ -17,10 +14,8 @@ function addTravel($travel, $bdd){
     'user_id' => $travel->getUserId(),
     ]);
 
-
     $lastId = $bdd->lastInsertId();
     $travel->setTravelId($lastId);
-
     $travelSteps = $travel->getListSteps();
     $travelStepsToCreate = [];
     foreach ($travelSteps as $key => $city) {
@@ -29,9 +24,11 @@ function addTravel($travel, $bdd){
             array_push($travelStepsToCreate, $newStep);
         }
     }
-
     addTravelSteps($travelStepsToCreate, $bdd);
+    return $lastId;
 }
+
+
 
 function addTravelSteps($travelSteps, $bdd){
     foreach ($travelSteps as $key => $step) {
@@ -41,20 +38,28 @@ function addTravelSteps($travelSteps, $bdd){
         'city_finish' => $step->getCityFinish(),
         'travel_id' => $step->getTravelId(),
         ]);
-
     }
 }
 
 
+function getTravelSteps($id, $bdd){
+    $statement = $bdd->prepare('SELECT ts.step_id, ts.city_start, ts.city_finish, ts.travel_id, COUNT(bs.step_id) as seatsOccupied FROM travel_steps ts 
+    LEFT JOIN bookedstep bs ON bs.step_id = ts.step_id WHERE ts.travel_id = ? GROUP BY ts.step_id');
+    $statement->execute(array($id));
+    $travelSteps = $statement-> fetchAll();
+    return $travelSteps;
+}
+
+function getAllTravel($start,$finish,$bdd){
+    $allTravelRequest = "SELECT  * FROM travel WHERE list_steps LIKE '%$start%$finish%'";
+    $allTravelStatement = $bdd->query($allTravelRequest);
+    $allTravel = $allTravelStatement->fetchAll();
+    return $allTravel;
+}
+
 function getTravelById($id, $bdd){
-    $statement = $bdd->prepare('SELECT * FROM travel WHERE travel_id = ?');
+    $statement = $bdd->prepare('SELECT * FROM travel WHERE  travel_id = ?');
     $statement->execute(array($id));
     $travel = $statement-> fetch();
     return $travel;
-
-    // REQUETE SQL POUR ALLER CHERCHER LE TRAJET PAR SON ID FOURNI EN PARAMETRE
-
-
-    // RETURN LE TRAVEL TROUVE
-    
 }

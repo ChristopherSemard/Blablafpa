@@ -6,6 +6,16 @@
 <?php var_dump($travel); ?>
 <?php var_dump($user); ?>
 
+        <!-- Main -->
+        <main class="container-lg py-5 col-lg-4 m-vh-80">
+
+        <?php if (isset($_SESSION['ERROR_BOOKING-TRAVEL'])): ?>
+          <p class='text-center alert alert-danger mt-2' role='alert'><?= $_SESSION['ERROR_BOOKING-TRAVEL'] ?></p>
+        <?php endif ?>
+        <?php if (isset($_SESSION['SUCCESS_BOOKING-TRAVEL'])): ?>
+          <p class='text-center alert alert-success mt-2' role='alert'><?= $_SESSION['SUCCESS_BOOKING-TRAVEL'] ?></p>
+        <?php endif ?>
+
 
 <!-- <a href="./index.php?action=travel&id=39">test</a> -->
 <div class="container mt-5">
@@ -85,7 +95,7 @@
 <?php var_dump($messages); ?>
 
 
-
+</main>
 
 <?php $content = ob_get_clean(); ?>
 
