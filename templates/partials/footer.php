@@ -1,5 +1,5 @@
 
-<footer class="container-fluid mt-auto text-center py-4 bg-light vh-10">
+<footer class="container-fluid mt-auto text-center py-4 vh-10">
     <p>BLABLAFPA</p>
 </footer>
 

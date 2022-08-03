@@ -27,7 +27,7 @@ try {
             }
             submitSignup($input); 
         } elseif ($_GET['action'] === 'logout') {
-            //logout();
+            logout();
         } elseif($_GET['action']==='search'){
             displayFormSearch();
             var_dump(extract($_POST));

@@ -1,3 +1,8 @@
+:root {
+    --primary: #86bc24;
+    --secondary: #044752;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +28,45 @@ body {
     height: 80%;
 }
 
+.color-primary {
+    color: var(--primary);
+}
+.color-secondary {
+    color: var(--secondary);
+}
+.background-primary {
+    background-color: var(--primary);
+}
+.background-secondary {
+    background-color: var(--secondary);
+    color: white;
+}
+.background-gradient {
+    background: rgb(134, 188, 36);
+    background: linear-gradient(
+        135deg,
+        rgba(134, 188, 36, 1) 0%,
+        rgba(4, 71, 82, 1) 43%
+    );
+    color: white;
+}
+
 .logo {
     max-height: 60px;
+}
+
+main {
+    position: relative;
+}
+
+.image-background {
+    width: 100%;
+    max-height: 80vh;
+}
+.form-on-background {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
 }
