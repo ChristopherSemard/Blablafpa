@@ -10,13 +10,16 @@
 
 
 
+        <h2 class="text-center mb-4">Publier votre trajet</h2>
+
+
         <form class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submit-publish-travel">
 
                 <label for="inputStart">Ville de départ</label>
                 <input type="text" class="form-control cityAutocomplete" id="inputStart" name="start"  placeholder="Ville de départ du trajet" required value="Rouen">
 
                 <label for="inputDestination">Etapes</label>
-                <button type="button" id="addStep" class="btn btn-primary">Ajouter une étape</button>
+                <button type="button" id="addStep" class="btn background-primary">Ajouter une étape</button>
                 <div id="divStep">
                 </div>
 
@@ -29,12 +32,9 @@
                 <label for="inputDate">Heure de départ</label>
                 <input type="datetime-local" class="form-control" id="inputDate" name="date" required>
 
-                <button type="submit" class="btn btn-primary">Valider</button>
+                <button type="submit" class="btn background-gradient">Valider</button>
 
         </form>
-        <select class="autoCompleteContainer">
-                
-        </select>
 
 </main>
 

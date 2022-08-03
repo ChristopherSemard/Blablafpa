@@ -14,7 +14,7 @@
 
             <?php  if(isset($_SESSION['LOGGED_USER'])) :?>
                 <div class="text-end d-flex align-items-center gap-2">
-                    <p class="m-auto d-none d-lg-block"><?= $_SESSION['LOGGED_USER']['firstname'] .' '. $_SESSION['LOGGED_USER']['lastname'] ?></p>
+                    <p class="m-auto  me-2 d-none d-lg-block"><?= $_SESSION['LOGGED_USER']['firstname'] .' '. $_SESSION['LOGGED_USER']['lastname'] ?></p>
                     <a href="../index.php?action=publish-travel" class="btn border-secondary me-2">Publier un trajet</a>
                     <form method="POST" action="../index.php?action=logout">
                         <button class="btn btn-danger">Deconnexion</button>
