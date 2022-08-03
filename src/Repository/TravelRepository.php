@@ -14,7 +14,6 @@ function addTravel($travel, $bdd){
     'user_id' => $travel->getUserId(),
     ]);
 
-
     $lastId = $bdd->lastInsertId();
     $travel->setTravelId($lastId);
     $travelSteps = $travel->getListSteps();
@@ -40,6 +39,13 @@ function addTravelSteps($travelSteps, $bdd){
     }
 }
 
+function getTravelSteps($id, $bdd){
+    $statement = $bdd->prepare('SELECT ts.step_id, ts.city_start, ts.city_finish, ts.travel_id, COUNT(bs.step_id) as seatsOccupied FROM travel_steps ts 
+    LEFT JOIN bookedstep bs ON bs.step_id = ts.step_id WHERE ts.travel_id = ? GROUP BY ts.step_id');
+    $statement->execute(array($id));
+    $travelSteps = $statement-> fetchAll();
+    return $travelSteps;
+}
 
 function getTravelById($id, $bdd){
     $statement = $bdd->prepare('SELECT * FROM travel WHERE travel_id = ?');

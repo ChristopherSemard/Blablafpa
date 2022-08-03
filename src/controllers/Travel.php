@@ -17,4 +17,7 @@ function displayTravel($id)
         // var_dump($user);
 
         require('../templates/travel.php');
+        
+        unset($_SESSION['ERROR_BOOKING-TRAVEL']);
+        unset($_SESSION['SUCCESS_BOOKING-TRAVEL']);
     }
