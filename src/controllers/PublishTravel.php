@@ -65,9 +65,9 @@ function submitPublishTravel($input){
         $newTravel = new Travel($start, $destination, $_SESSION['LOGGED_USER']['userId'], $date, $seatAvailable, $steps);
 
         // Fonction de ../src/Repository/TravelRepository.php' pour ajouter le trajet en base de données
-        addTravel($newTravel, $bdd);
+        $idTravel = addTravel($newTravel, $bdd);
         // header ('location: index.php?action=login');
-        // header ('location: index.php');
+        header ('location: index.php?action=travel&id='.$idTravel);
 
 
     }

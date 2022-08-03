@@ -3,10 +3,7 @@
 
 
 function addTravel($travel, $bdd){
-
     require_once('../src/classes/Travel.php');
-
-    
     $statement = $bdd->prepare('INSERT INTO travel (start, destination, date_start, seat_available, list_steps, user_id) VALUES (:start, :destination, :date_start, :seat_available, :list_steps, :user_id)');
     $statement->execute(  [
     'start' => $travel->getStart(),
@@ -20,7 +17,6 @@ function addTravel($travel, $bdd){
 
     $lastId = $bdd->lastInsertId();
     $travel->setTravelId($lastId);
-
     $travelSteps = $travel->getListSteps();
     $travelStepsToCreate = [];
     foreach ($travelSteps as $key => $city) {
@@ -29,8 +25,8 @@ function addTravel($travel, $bdd){
             array_push($travelStepsToCreate, $newStep);
         }
     }
-
     addTravelSteps($travelStepsToCreate, $bdd);
+    return $lastId;
 }
 
 function addTravelSteps($travelSteps, $bdd){
@@ -41,7 +37,6 @@ function addTravelSteps($travelSteps, $bdd){
         'city_finish' => $step->getCityFinish(),
         'travel_id' => $step->getTravelId(),
         ]);
-
     }
 }
 
@@ -51,10 +46,4 @@ function getTravelById($id, $bdd){
     $statement->execute(array($id));
     $travel = $statement-> fetch();
     return $travel;
-
-    // REQUETE SQL POUR ALLER CHERCHER LE TRAJET PAR SON ID FOURNI EN PARAMETRE
-
-
-    // RETURN LE TRAVEL TROUVE
-    
 }
