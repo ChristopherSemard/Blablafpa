@@ -16,13 +16,8 @@
         <!-- Header et nav -->
         <?php include_once('partials/header.php');?>
         
-        <!-- Main -->
-        <main class="container-lg py-5 col-lg-4 m-vh-80">
-
         <!-- Inserton de notre contenu ici -->
         <?= $content ?>
-
-        </main>
 
         <!-- Footer -->
         <?php include_once('partials/footer.php');?>
