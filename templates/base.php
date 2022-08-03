@@ -24,4 +24,5 @@
     </body>
     
     <script src="./assets/js/travel.js"></script>
+    
 </html>

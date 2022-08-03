@@ -33,6 +33,8 @@ function addTravel($travel, $bdd){
     addTravelSteps($travelStepsToCreate, $bdd);
 }
 
+
+
 function addTravelSteps($travelSteps, $bdd){
     foreach ($travelSteps as $key => $step) {
         $statement = $bdd->prepare('INSERT INTO travel_steps (city_start, city_finish, travel_id) VALUES (:city_start, :city_finish, :travel_id)');
@@ -45,9 +47,15 @@ function addTravelSteps($travelSteps, $bdd){
     }
 }
 
+function getAllTravel($start,$finish,$bdd){
+    $allTravelRequest = "SELECT  * FROM travel WHERE list_steps LIKE '%$start%$finish%'";
+    $allTravelStatement = $bdd->query($allTravelRequest);
+    $allTravel = $allTravelStatement->fetchAll();
 
+    return $allTravel;
+}
 function getTravelById($id, $bdd){
-    $statement = $bdd->prepare('SELECT * FROM travel WHERE travel_id = ?');
+    $statement = $bdd->prepare('SELECT * FROM travel WHERE  travel_id = ?');
     $statement->execute(array($id));
     $travel = $statement-> fetch();
     return $travel;

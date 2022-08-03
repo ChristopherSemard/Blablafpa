@@ -30,8 +30,11 @@ try {
         } elseif ($_GET['action'] === 'logout') {
             logout();
         } elseif($_GET['action']==='search'){
-            displayFormSearch();
-            var_dump(extract($_POST));
+            if (isset($_POST['start'],$_POST['finish'])) {
+                $start = $_POST['start'];
+                $finish = $_POST['finish'];
+                makeSearch($start,$finish);
+            }else{displayFormSearch();}
         }
         elseif ($_GET['action'] === 'publish-travel') {
             displayFormPublishTravel();
@@ -60,4 +63,3 @@ try {
     echo($errorMessage);
 }
 ?>
-<script src="./assets/js/autocomplete.js"></script>
