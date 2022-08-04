@@ -39,6 +39,7 @@
 .background-primary:hover,
 .background-primary:active,
 .background-primary:focus {
+    background-color: var(--primary);
     color: white;
 }
 
@@ -49,6 +50,7 @@
 .background-secondary:hover,
 .background-secondary:active,
 .background-secondary:focus {
+    background-color: var(--secondary);
     color: white;
 }
 
@@ -64,6 +66,12 @@
 .background-gradient:hover,
 .background-gradient:active,
 .background-gradient:focus {
+    background: rgb(134, 188, 36);
+    background: linear-gradient(
+        135deg,
+        rgba(134, 188, 36, 1) 0%,
+        rgba(4, 71, 82, 1) 43%
+    );
     color: white;
 }
 
@@ -245,4 +253,26 @@ main {
     background-color: var(--primary);
     color: #fff;
     height: 40px;
+}
+
+.travel-graphic {
+    width: 100%;
+}
+.active-reservation {
+    width: 100%;
+}
+.profile-travels {
+    width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    .travel-graphic {
+        width: 50%;
+    }
+    .active-reservation {
+        width: 50%;
+    }
+    .profile-travels {
+        width: 45%;
+    }
 }

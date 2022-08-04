@@ -68,3 +68,12 @@ function getTravelById($id, $bdd)
     $travel = $statement->fetch();
     return $travel;
 }
+
+
+function getAllTravelsByUserId($id, $bdd)
+{
+    $statement = $bdd->prepare('SELECT *  FROM travel WHERE user_id = ?');
+    $statement->execute(array($id));
+    $travels = $statement->fetchAll();
+    return $travels;
+}

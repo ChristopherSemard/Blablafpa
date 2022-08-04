@@ -50,8 +50,8 @@
   <div class="shadow-sm  p-3 rounded d-flex flex-column  mb-3">
 
 
-    <div class=" d-flex gap-3 justify-content-between">
-      <div class="vtl w-50 ">
+    <div class=" d-flex gap-3 flex-wrap justify-content-between">
+      <div class="vtl travel-graphic">
         <h5 class="mb-3"><i class="fa-solid fa-user"></i> <?= $travel["seat_available"] ?> passagers possibles </h5>
 
         <div class="event">
@@ -78,7 +78,7 @@
 
 
       <?php if (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER']['userId'] == $travel['user_id']) : ?>
-        <div class="w-50 ">
+        <div class="active-reservation">
           <h4>Réservations</h4>
 
 
@@ -99,7 +99,7 @@
 
       <?php elseif (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER']['userId'] != $travel['user_id'] && $userIsBooked) : ?>
 
-        <div class="w-50 ">
+        <div class="active-reservation">
 
           <h4>Ma réservation</h4>
 
@@ -113,7 +113,7 @@
     <?php if (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER']['userId'] != $travel['user_id']) : ?>
       <a class=" btn background-gradient  mt-4" href="../index.php?action=booking&id=<?= $travel['travel_id'] ?>">Réservez</a>
     <?php else : ?>
-      <a class=" btn background-gradient  mt-4" href="#">Vous ne pouvez pas réserver votre propre trajet</a>
+      <a class=" btn btn-danger  mt-4" href="#">Vous ne pouvez pas réserver votre propre trajet</a>
     <?php endif ?>
   </div>
 
