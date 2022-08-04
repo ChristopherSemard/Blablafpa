@@ -31,7 +31,7 @@ function getMessage($id, $bdd)
 {
     require_once('../src/pdo/pdo.php');
 
-    $statement = $bdd->prepare('SELECT content, message_date, firstname, lastname  FROM messages m INNER JOIN users AS u on u.user_id = m.user_id  WHERE travel_id = ? ');
+    $statement = $bdd->prepare('SELECT content, message_date, firstname, lastname  FROM messages m INNER JOIN users AS u on u.user_id = m.user_id  WHERE travel_id = ? ORDER BY message_date DESC');
     $statement->execute(array($id));
     $messages = $statement->fetchAll();
     return $messages;

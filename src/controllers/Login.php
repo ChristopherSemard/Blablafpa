@@ -1,14 +1,12 @@
 <?php
 
 function displayFormLogin(){
-    session_start();
     require('../templates/login.php');
     unset($_SESSION['ERROR_LOGIN']);
     unset($_SESSION['ERROR_LOGIN_INPUT']);
 }
 
 function submitLogin(){
-    session_start();
     require_once('../src/pdo/pdo.php');
     if(isset($_POST['afpaId'])&& isset($_POST['password']))
     {
