@@ -112,6 +112,8 @@
 
     <?php if (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER']['userId'] != $travel['user_id']) : ?>
       <a class=" btn background-gradient  mt-4" href="../index.php?action=booking&id=<?= $travel['travel_id'] ?>">Réservez</a>
+    <?php elseif (!isset($_SESSION['LOGGED_USER'])) : ?>
+      <a class=" btn border-secondary  mt-4" href="../index.php?action=login">Vous devez être connecté pour accéder à la réservation du trajet</a>
     <?php else : ?>
       <a class=" btn btn-danger  mt-4" href="#">Vous ne pouvez pas réserver votre propre trajet</a>
     <?php endif ?>
