@@ -97,7 +97,7 @@
           <?php endif ?>
         </div>
 
-      <?php elseif (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER']['userId'] != $travel['user_id'] && $userIsBooked) : ?>
+      <?php elseif (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER']['userId'] != $travel['user_id'] && isset($userIsBooked)) : ?>
 
         <div class="active-reservation">
 

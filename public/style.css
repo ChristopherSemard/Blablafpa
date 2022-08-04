@@ -38,7 +38,10 @@
 }
 .background-primary:hover,
 .background-primary:active,
-.background-primary:focus {
+.background-primary:focus,
+.background-primary:visited,
+.background-primary:focus-within,
+.background-primary:focus-visible {
     background-color: var(--primary);
     color: white;
 }
@@ -49,7 +52,10 @@
 }
 .background-secondary:hover,
 .background-secondary:active,
-.background-secondary:focus {
+.background-secondary:focus,
+.background-secondary:visited,
+.background-secondary:focus-within,
+.background-secondary:focus-visible {
     background-color: var(--secondary);
     color: white;
 }
@@ -65,7 +71,10 @@
 }
 .background-gradient:hover,
 .background-gradient:active,
-.background-gradient:focus {
+.background-gradient:focus,
+.background-gradient:visited,
+.background-gradient:focus-within,
+.background-gradient:focus-visible {
     background: rgb(134, 188, 36);
     background: linear-gradient(
         135deg,
@@ -86,7 +95,7 @@
 }
 
 .logo {
-    max-height: 60px;
+    max-height: 40px;
 }
 
 /* (A) TIMELINE CONTAINER */
@@ -181,14 +190,6 @@ main {
     max-height: 80vh;
     object-fit: cover;
     object-position: bottom;
-}
-
-.form-on-background {
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%);
 }
 
 /**/
@@ -295,6 +296,15 @@ li {
     width: 100%;
 }
 
+.form-on-background {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
 @media screen and (min-width: 992px) {
     .travel-graphic {
         width: 50%;
@@ -304,5 +314,16 @@ li {
     }
     .profile-travels {
         width: 45%;
+    }
+    .form-on-background {
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+    }
+    .logo {
+        max-height: 50px;
     }
 }
