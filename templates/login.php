@@ -1,4 +1,4 @@
-<?php $title = "CONNEXION"; ?>
+<?php $title = "Connexion"; ?>
 
 
 
