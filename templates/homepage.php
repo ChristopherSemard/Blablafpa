@@ -13,10 +13,16 @@
                 <h2 class="color-secondary" >Recherchez un trajet !</h2>
                 <form method="post" action="./index.php?action=search">
                     <div class="input">
-                        <label for="">Départ</label>
-                        <input type="text" class="cityAutocomplete form-control" name='start'placeholder="Ville de départ">
-                        <label for="">Arrivée</label>
-                        <input type="text" class="cityAutocomplete form-control" name='finish' placeholder="Ville d'arrivée">
+                        <div>
+                            <label for="">Départ</label>
+                            <input type="text" class="cityAutocomplete form-control" name='start'placeholder="Ville de départ">
+                            <ul class="list"></ul>
+                        </div>
+                        <div>
+                            <label for="">Arrivée</label>
+                            <input type="text" class="cityAutocomplete form-control" name='finish' placeholder="Ville d'arrivée">
+                            <ul class="list"></ul>
+                        </div>
                     </div>
                     <button type="submit" class="btn background-gradient mt-2" >Rechercher</button>
                 </form>

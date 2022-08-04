@@ -239,3 +239,25 @@ main {
     color: #fff;
     height: 40px;
 }
+/* City auto complete */
+ul {
+    list-style: none;
+  }
+  .list {
+    position: absolute;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 0 0 5px 5px;
+  }
+  .list-items {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+    background-color: rgb(222, 240, 175);
+  }
+  .list-items:hover {
+    background-color: #ace352;
+  }
+  .cityAutocomplete{
+    text-transform: capitalize;
+  }

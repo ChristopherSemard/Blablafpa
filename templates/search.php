@@ -11,14 +11,19 @@ function getMyDate ($srting){
 ?>
 
 <main class="container d-flex flex-column m-vh-80">
-
         <form class="mb-3" method="post">
         <h2 class="color-secondary">Recherchez un trajet !</h2>
             <div class="input">
-                <label for="">Départ</label>
+                <div>
+                    <label for="">Départ</label>
                     <input type="text" value="<?= isset($input) ? $input['start'] : '' ?>" class="cityAutocomplete form-control" name='start' placeholder="Ville de départ">
+                    <ul class="list"></ul>
+                </div>
+                <div>
                     <label for="">Arrivée</label>
                     <input type="text" value="<?= isset($input) ? $input['finish'] : '' ?>" class="cityAutocomplete form-control" name='finish' placeholder="Ville d'arrivée">
+                    <ul class="list"></ul>
+                </div>
                     <!-- <label for="">Places</label>
                     <input type="number" value="<?= $_POST['seat'] ?>" class="number form-control" name='seat' placeholder="Nombre de places"> -->
             </div>
