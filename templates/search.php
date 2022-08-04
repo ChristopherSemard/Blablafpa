@@ -33,22 +33,21 @@ function getMyDate ($srting){
 
     <div class="d-flex flex-wrap flex-column align-items-center">
         <?php if (isset($availableTravel) && count($availableTravel) > 0) :?>
+            <h2 class="color-secondary align-self-start">Voici nos trajets !</h2>
             <?php foreach ($availableTravel as $travel) :?>
-                <a class="w-100" href="../index.php/?action=travel&id=<?=$travel['travel_id']?>">
-                    <div class="card w-100" style="display:inline-block;">
-                        <div class="card-body w-100" >
-                            <h5 class="card-title">Date de depart : <?=getMyDate($travel['date_start'])?></h5>
-                            <h5 class="card-title"><?=$travel['start']?></h5>
-                            <h6 class="card-subtitle text-muted"> |   <?=str_replace(['[',']','"',','],['','','',', '],$travel['list_steps'])?></h6>
-                            <h5 class="card-title"><?=$travel['destination']?></h5>
-                            <h6 class="card-subtitle text-muted"><?=$travel['firstname'] . ' .' . ucfirst(substr($travel['lastname'],0,1))  ?></h6>
+                <a class="w-100 mb-2" href="../index.php/?action=travel&id=<?=$travel['travel_id']?>">
+                    <div class="card shadow-sm   w-100" style="display:inline-block;">
+                        <div class="card-body w-100 d-flex flex-column" >
+                            <h5 class="card-title color-secondary"><?=$travel['start'] . '-' . $travel['destination'] ?> | Date de depart : <?=getMyDate($travel['date_start'])?></h5>
+                            <h6 class="card-subtitle text-muted mb-3"> |   <?=str_replace(['[',']','"',','],['','','',', '],$travel['list_steps'])?></h6>
+                            <h6 class="card-subtitle text-muted align-self-end">Par <?=$travel['firstname'] . ' .' . ucfirst(substr($travel['lastname'],0,1))  ?></h6>
                         </div>
                      </div>
                 </a>
             <?php endforeach ?>
         <?php else: ?>
                     
-            <p class='text-center alert alert-danger mt-2' role='alert'>Aucun trajet trouvé</p>
+            <p class='w-100 text-center alert alert-danger mt-2' role='alert'>Aucun trajet trouvé</p>
         <?php endif?>
     
     </div>
