@@ -8,7 +8,7 @@ function displayFormBooking($id)
     require_once('../src/Repository/TravelRepository.php');
 
     $travel = getTravelById($id, $bdd);
-    // var_dump($travel);
+    // $travelSteps = getTravelSteps($id, $bdd);
     require('../templates/booking.php');
     unset($_SESSION['ERROR_BOOKING-TRAVEL']);
 }

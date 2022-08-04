@@ -55,8 +55,8 @@
         <h5 class="mb-3"><i class="fa-solid fa-user"></i> <?= $travel["seat_available"] ?> passagers possibles </h5>
 
         <div class="event">
-          <p class="date">Départ</p>
-          <p class="txt"><?= $travel["start"] ?></p>
+          <p class="date  my-1">Départ</p>
+          <p class="txt m-0"><?= $travel["start"] ?></p>
 
           <?php $freeSeats = $travel["seat_available"] - $travelSteps[0]['seatsOccupied']; ?>
           <?php if ($freeSeats > 1) : ?>
@@ -92,7 +92,7 @@
 
 
         <div class="event">
-          <p class="date m-0">Arrivée</p>
+          <p class="date my-1">Arrivée</p>
           <p class="txt mb-1"><?= $travel["destination"] ?></p>
         </div>
 

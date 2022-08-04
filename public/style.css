@@ -142,7 +142,7 @@ div.event {
 p.date {
     font-size: 1.1em;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 p.txt {
