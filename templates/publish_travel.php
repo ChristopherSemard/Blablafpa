@@ -16,7 +16,11 @@
         <form class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submit-publish-travel">
 
                 <label for="inputStart">Ville de départ</label>
-                <input type="text" class="form-control cityAutocomplete" id="inputStart" name="start" placeholder="Ville de départ du trajet" required value="Rouen">
+                <div>
+                        <input type="text" id="inputStart" class="cityAutocomplete form-control" name='start' placeholder="Ville de départ du trajet" required>
+                        <ul class="list shadow"></ul>
+                </div>
+
 
                 <label for="inputDestination">Etapes</label>
                 <button type="button" id="addStep" class="btn background-primary">Ajouter une étape</button>
@@ -24,7 +28,11 @@
                 </div>
 
                 <label for="inputDestination">Ville d'arrivée</label>
-                <input type="text" class="form-control cityAutocomplete" id="inputDestination" name="destination" placeholder="Ville d'arrivée du trajet" required value="Marseille">
+                <div>
+                        <input type="text" id="inputDestination" class="cityAutocomplete form-control" name='destination' placeholder="Ville d'arrivée du trajet" required>
+                        <ul class="list shadow"></ul>
+                </div>
+
 
                 <label for="inputSeats">Nombre de places disponibles pour des passagers</label>
                 <input type="number" class="form-control" id="inputSeats" name="seatAvailable" required value="2" min="1" max="6">
@@ -39,7 +47,11 @@
 
         <template id="add-step">
                 <div class="d-flex justify-content-between align-items-center mb-2 gap-2 cityAutocomplete">
-                        <input type="text" class="form-control" id="inputStep" name="step[]" value="" placeholder="Etape du trajet" required></input>
+                        <div class="w-100">
+                                <input type="text" id="inputStep" class="cityAutocomplete form-control" name='step[]' placeholder="Etape du trajet" required>
+                                <ul class="list shadow"></ul>
+                        </div>
+
                         <button type="button" class="btn btn-danger deleteStep"> X </button>
                 </div>
         </template>
