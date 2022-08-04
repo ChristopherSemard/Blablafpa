@@ -16,12 +16,12 @@
                         <div>
                             <label for="">Départ</label>
                             <input type="text" class="cityAutocomplete form-control" name='start'placeholder="Ville de départ">
-                            <ul class="list"></ul>
+                            <ul class="list list-group"></ul>
                         </div>
                         <div>
                             <label for="">Arrivée</label>
                             <input type="text" class="cityAutocomplete form-control" name='finish' placeholder="Ville d'arrivée">
-                            <ul class="list"></ul>
+                            <ul class="list list-group"></ul>
                         </div>
                     </div>
                     <button type="submit" class="btn background-gradient mt-2" >Rechercher</button>
