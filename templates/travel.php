@@ -93,7 +93,7 @@
 
         <div class="event">
           <p class="date my-1">Arrivée</p>
-          <p class="txt mb-1"><?= $travel["destination"] ?></p>
+          <p class="txt m-0 mb-1"><?= $travel["destination"] ?></p>
         </div>
 
       </div>
