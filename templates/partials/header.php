@@ -14,7 +14,7 @@
                 <div class="text-end  d-none d-lg-flex align-items-center gap-2">
 
                     <a class="nav-link" href="../index.php?action=profile">
-                        <p class="m-auto  me-2 "><?= $_SESSION['LOGGED_USER']['firstname'] . ' ' . $_SESSION['LOGGED_USER']['lastname'] ?></p>
+                        <p class="m-auto color-secondary me-2 "><i class="fa-solid fa-circle-user"> </i> <?= $_SESSION['LOGGED_USER']['firstname'] . ' ' . $_SESSION['LOGGED_USER']['lastname'] ?></p>
                     </a>
 
 
