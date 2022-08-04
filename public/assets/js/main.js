@@ -7,7 +7,7 @@ addInputsAutocomplete(inputsAutocomplete);
 
 function addInputsAutocomplete(inputsAutocomplete) {
     inputsAutocomplete.forEach((input) => {
-        input.addEventListener("input", () => {
+        input.addEventListener("keyup", () => {
             autocomplete(this.event.target);
         });
     });

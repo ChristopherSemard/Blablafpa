@@ -40,6 +40,9 @@
                         <input type="hidden" name="user_id" value="<?= $_SESSION['LOGGED_USER']['userId'] ?>">
                         <button type="submit" class="btn  background-gradient">Valider</button>
 
+                        <?php if (isset($_SESSION['ERROR_PUBLISH-TRAVEL'])) : ?>
+                            <p class='text-center alert alert-danger mt-2' role='alert'><?= $_SESSION['ERROR_PUBLISH-TRAVEL'] ?></p>
+                        <?php endif ?>
     </form>
 
 </main>
