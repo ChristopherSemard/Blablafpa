@@ -41,6 +41,10 @@
                         <a href="../index.php?action=publish-travel" class="dropdown-item">Publier un trajet</a>
                         <a href="../index.php?action=logout" class="dropdown-item">Deconnexion</a>
 
+                    <?php else : ?>
+                        <a href="../index.php?action=search" class="dropdown-item">Chercher un trajet</a>
+                        <a href="../index.php?action=login" class="dropdown-item">Connexion</a>
+                        <a href="../index.php?action=signup" class="dropdown-item">Inscription</a>
                     <?php endif ?>
 
                 </div>

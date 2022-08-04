@@ -5,7 +5,7 @@
 <?php ob_start(); ?>
 
 <!-- Main -->
-<main class="container-lg py-5 col-lg-6 m-vh-80">
+<main class="container-lg py-5  col-xl-7 m-vh-80">
 
   <?php if (isset($_SESSION['ERROR_BOOKING-TRAVEL'])) : ?>
     <p class='text-center alert alert-danger mt-2' role='alert'><?= $_SESSION['ERROR_BOOKING-TRAVEL'] ?></p>
@@ -57,21 +57,43 @@
         <div class="event">
           <p class="date">Départ</p>
           <p class="txt"><?= $travel["start"] ?></p>
+
+          <?php $freeSeats = $travel["seat_available"] - $travelSteps[0]['seatsOccupied']; ?>
+          <?php if ($freeSeats > 1) : ?>
+            <p class="text-success mb-1"><?php $freeSeats ?> places disponibles</p>
+          <?php elseif ($freeSeats == 1) : ?>
+            <p class="text-warning mb-1">1 place disponible</p>
+          <?php else : ?>
+            <p class="text-danger mb-1">Aucune place disponible</p>
+          <?php endif ?>
         </div>
-        <?php
-        //   var_dump($travel["list_steps"]);
-        $steps = json_decode($travel["list_steps"]);
-        foreach ($steps as $key => $step) {
-          if ($step != $travel["start"] && $step != $travel["destination"]) {
-            echo '<div class="event">
-                        <p class="date">Étape ' . $key . '</p>
-                        <p class="txt">' . $step . '</p>
-                        </div>';
-          }
-        } ?>
+
+
+        <?php foreach ($travelSteps as $key => $step) : ?>
+
+          <?php $freeSeats = $travel["seat_available"] - $step['seatsOccupied']; ?>
+
+          <?php if ($step['city_start'] != $travel["start"]) : ?>
+            <div class="event">
+              <p class="date my-1">Étape <?= $key ?></p>
+              <p class="txt m-0"><?= $step['city_start'] ?></p>
+
+              <?php if ($freeSeats > 1) : ?>
+                <p class="text-success mb-1"><?= $freeSeats ?> places disponibles</p>
+              <?php elseif ($freeSeats == 1) : ?>
+                <p class="text-warning mb-1">1 place disponible</p>
+              <?php else : ?>
+                <p class="text-danger mb-1">Aucune place disponible</p>
+              <?php endif ?>
+            </div>
+          <?php endif ?>
+
+        <?php endforeach ?>
+
+
         <div class="event">
-          <p class="date">Arrivée</p>
-          <p class="txt"><?= $travel["destination"] ?></p>
+          <p class="date m-0">Arrivée</p>
+          <p class="txt mb-1"><?= $travel["destination"] ?></p>
         </div>
 
       </div>
@@ -120,7 +142,7 @@
   </div>
 
 
-  <?php if (isset($_SESSION['LOGGED_USER'])) : ?>
+  <?php if (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER'] == $travel["user_id"] || isset($_SESSION['LOGGED_USER']) && isset($userIsBooked)) : ?>
     <form id="messages" class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submit-message">
       <h2>Messages</h2>
       <label for="inputMessage">Envoyer un message</label>

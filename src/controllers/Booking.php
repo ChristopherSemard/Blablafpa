@@ -9,9 +9,8 @@ function displayFormBooking($id)
 
     $travel = getTravelById($id, $bdd);
     // var_dump($travel);
-
-
     require('../templates/booking.php');
+    unset($_SESSION['ERROR_BOOKING-TRAVEL']);
 }
 
 
@@ -36,25 +35,24 @@ function submitBooking($input)
         if ($userId == $travel['user_id']) {
             $_SESSION['ERROR_BOOKING-TRAVEL'] = "Vous ne pouvez pas réserver sur votre propre trajet !";
             header('location: index.php?action=travel&id=' . $travelId);
-            return;
+            exit;
         }
 
 
         $travelListSteps = json_decode($travel['list_steps']);
         $indexStart = array_search($start, $travelListSteps);
-        $indexFinish = array_search($finish, $travelListSteps);
+        $indexFinish = array_search($destination, $travelListSteps);
+        var_dump($indexStart, $indexFinish);
         if ($indexStart >= $indexFinish) {
             $_SESSION['ERROR_BOOKING-TRAVEL'] = "Vous ne pouvez pas choisir une ville de départ située après votre arrivée dans le trajet";
             header('location: index.php?action=travel&id=' . $travelId);
-            return;
+            exit;
         }
-
-
         foreach ($travelSteps as $key => $step) {
             if ($step['seatsOccupied'] >= $travel['seat_available']) {
                 $_SESSION['ERROR_BOOKING-TRAVEL'] = "Malheureusement il n'y a plus assez de places sur ce trajet !";
                 header('location: index.php?action=travel&id=' . $travelId);
-                return;
+                exit;
             }
         }
 

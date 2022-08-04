@@ -131,7 +131,7 @@
 
 /* (C) COSMETICS FOR EVENTS */
 div.event {
-    padding: 20px 30px;
+    padding: 7px 25px;
     background-color: #ebffee;
     position: relative;
     border-radius: 6px;
@@ -307,10 +307,10 @@ li {
 
 @media screen and (min-width: 992px) {
     .travel-graphic {
-        width: 50%;
+        width: 45%;
     }
     .active-reservation {
-        width: 50%;
+        width: 45%;
     }
     .profile-travels {
         width: 45%;

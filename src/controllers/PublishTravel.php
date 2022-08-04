@@ -35,24 +35,28 @@ function submitPublishTravel($input)
         if ($start == $destination) {
             $_SESSION['ERROR_PUBLISH-TRAVEL'] = "La ville de départ est la même que la ville d'arrivée.";
             header('location: index.php?action=publish-travel');
+            exit;
         } else if ($dateNowObject > $dateObject) {
             $_SESSION['ERROR_PUBLISH-TRAVEL'] = "La date renseignée est déjà dépassée.";
             header('location: index.php?action=publish-travel');
+            exit;
         } else if ($steps && in_array($start, $steps)) {
             $_SESSION['ERROR_PUBLISH-TRAVEL'] = "La ville de départ ne peut pas être également une étape.";
             header('location: index.php?action=publish-travel');
+            exit;
         } else if ($steps && in_array($destination, $steps)) {
             $_SESSION['ERROR_PUBLISH-TRAVEL'] = "La ville d'arrivée ne peut pas être également une étape.";
             header('location: index.php?action=publish-travel');
+            exit;
         }
 
         $newTravel = new Travel($start, $destination, $_SESSION['LOGGED_USER']['userId'], $date, $seatAvailable, $steps);
 
         // Fonction de ../src/Repository/TravelRepository.php' pour ajouter le trajet en base de données
         $idTravel = addTravel($newTravel, $bdd);
-        header('location: index.php?action=travel&id=' . $idTravel);
+        // header('location: index.php?action=travel&id=' . $idTravel);
     } else {
         $_SESSION['ERROR_PUBLISH-TRAVEL'] = "Un des champs n'est pas rempli.";
-        header('location: index.php?action=publish-travel');
+        // header('location: index.php?action=publish-travel');
     }
 }

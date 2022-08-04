@@ -11,6 +11,7 @@ function displayTravel($id)
     require_once('../src/Repository/BookingRepository.php');
 
     $travel = getTravelById($id, $bdd);
+    $travelSteps = getTravelSteps($id, $bdd);
     $user = getUserById($travel["user_id"], $bdd);
     $messages = getMessage($id, $bdd);
     $bookedUsers = getBookedUsers($id, $bdd);
@@ -30,6 +31,7 @@ function displayTravel($id)
     }
 
     require('../templates/travel.php');
+    var_dump($travelSteps);
     unset($_SESSION['ERROR_BOOKING-TRAVEL']);
     unset($_SESSION['SUCCESS_BOOKING-TRAVEL']);
 }

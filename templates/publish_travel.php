@@ -42,6 +42,10 @@
 
                 <button type="submit" class="btn background-gradient">Valider</button>
 
+
+                <?php if (isset($_SESSION['ERROR_PUBLISH-TRAVEL'])) : ?>
+                        <p class='text-center alert alert-danger mt-2' role='alert'><?= $_SESSION['ERROR_PUBLISH-TRAVEL'] ?></p>
+                <?php endif ?>
         </form>
 
 
