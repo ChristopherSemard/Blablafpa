@@ -36,9 +36,19 @@
     background-color: var(--primary);
     color: white;
 }
+.background-primary:hover,
+.background-primary:active,
+.background-primary:focus {
+    color: white;
+}
 
 .background-secondary {
     background-color: var(--secondary);
+    color: white;
+}
+.background-secondary:hover,
+.background-secondary:active,
+.background-secondary:focus {
     color: white;
 }
 
@@ -49,6 +59,11 @@
         rgba(134, 188, 36, 1) 0%,
         rgba(4, 71, 82, 1) 43%
     );
+    color: white;
+}
+.background-gradient:hover,
+.background-gradient:active,
+.background-gradient:focus {
     color: white;
 }
 

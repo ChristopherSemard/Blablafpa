@@ -2,7 +2,6 @@
 
 function displayFormSignup(){
 
-    session_start();
         
     require('../templates/signup.php');
     unset($_SESSION['ERROR_SIGNUP']);
@@ -11,7 +10,6 @@ function displayFormSignup(){
 
 function submitSignup($input){
     require_once('../src/pdo/pdo.php');
-    session_start();
     
     if(isset($input['afpaId']) && isset($input['email']) && isset($input['firstName']) && isset($input['lastName']) && isset($input['password']) && isset($input['password_retype'])){
 

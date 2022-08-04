@@ -6,7 +6,6 @@
 
 function displayFormPublishTravel(){
 
-    session_start();
         
     require('../templates/publish_travel.php');
 }
@@ -17,9 +16,7 @@ function submitPublishTravel($input){
     require_once('../src/Repository/TravelRepository.php');
     require_once('../src/classes/Travel.php');
 
-    var_dump($input);
 
-    session_start();
     
     if(isset($input['start']) && isset($input['destination']) && isset($input['seatAvailable']) && isset($input['date'])){
         

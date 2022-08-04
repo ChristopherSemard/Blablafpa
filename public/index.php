@@ -11,6 +11,7 @@ require_once('../src/controllers/Booking.php');
 
 
 try {
+    session_start();
     if (isset($_GET['action']) && $_GET['action']) {
         if ($_GET['action'] === 'login') {
             displayFormLogin();
@@ -28,7 +29,7 @@ try {
                 $input = $_POST;
             }
             submitSignup($input);
-        } elseif ($_GET['action'] === 'logout') {
+        } elseif ($_GET['action'] === 'logout' && isset($_SESSION['LOGGED_USER'])) {
             logout();
         } elseif($_GET['action']==='search'){
             $input = null;
@@ -37,7 +38,7 @@ try {
             }
             makeSearch($input);
         }
-        elseif ($_GET['action'] === 'publish-travel') {
+        elseif ($_GET['action'] === 'publish-travel' && isset($_SESSION['LOGGED_USER'])) {
             displayFormPublishTravel();
         } elseif ($_GET['action'] === 'travel') {
             if (isset($_GET['id'])) {
@@ -47,7 +48,7 @@ try {
                 homepage();
             }
         } 
-        elseif ($_GET['action'] === 'booking') {
+        elseif ($_GET['action'] === 'booking'  && isset($_SESSION['LOGGED_USER'])) {
             if (isset($_GET['id'])) {
                 $id  =  $_GET['id'];
                 displayFormBooking($id);
@@ -55,25 +56,28 @@ try {
                 homepage();
             }
             
-        } elseif ($_GET['action'] === 'submit-booking') {
+        } elseif ($_GET['action'] === 'submit-booking'  && isset($_SESSION['LOGGED_USER'])) {
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input = $_POST;
             }
             submitBooking($input); 
         } 
-        elseif ($_GET['action'] === 'submit-publish-travel') {
+        elseif ($_GET['action'] === 'submit-publish-travel'  && isset($_SESSION['LOGGED_USER'])) {
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input = $_POST;
             }
             submitPublishTravel($input);
-        } elseif ($_GET['action'] === 'submit-message') {
+        } elseif ($_GET['action'] === 'submit-message'  && isset($_SESSION['LOGGED_USER'])) {
             $input = null;
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $input = $_POST;
             }
             submitMessage($input);
+        }
+        else {
+            header('Location: index.php');
         }
     } else {
         homepage();

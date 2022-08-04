@@ -4,7 +4,6 @@
 
     function displayFormBooking($id)
     {
-        session_start();
         require_once('../src/pdo/pdo.php');
         require_once('../src/Repository/TravelRepository.php');
 
@@ -18,7 +17,6 @@
 
     function submitBooking($input){
 
-        session_start();
         require_once('../src/pdo/pdo.php');
         require_once('../src/Repository/TravelRepository.php');
         require_once('../src/Repository/BookingRepository.php');
@@ -34,7 +32,13 @@
     
             $travelSteps = getTravelSteps($travelId, $bdd);
             $travel = getTravelById($travelId, $bdd);
-            
+
+            if ($userId == $travel['user_id']) {
+                $_SESSION['ERROR_BOOKING-TRAVEL'] = "Vous ne pouvez pas réserver sur votre propre trajet !";
+                header ('location: index.php?action=travel&id='.$travelId);
+                return;
+            }
+
             foreach ($travelSteps as $key => $step) {
                 if ($step['seatsOccupied'] >= $travel['seat_available']) {
                     $_SESSION['ERROR_BOOKING-TRAVEL'] = "Malheureusement il n'y a plus assez de places sur ce trajet !";
