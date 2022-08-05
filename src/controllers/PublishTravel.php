@@ -1,8 +1,4 @@
-
 <?php
-
-
-
 
 function displayFormPublishTravel()
 {
@@ -54,9 +50,9 @@ function submitPublishTravel($input)
 
         // Fonction de ../src/Repository/TravelRepository.php' pour ajouter le trajet en base de données
         $idTravel = addTravel($newTravel, $bdd);
-        // header('location: index.php?action=travel&id=' . $idTravel);
+        header('location: index.php?action=travel&id=' . $idTravel);
     } else {
         $_SESSION['ERROR_PUBLISH-TRAVEL'] = "Un des champs n'est pas rempli.";
-        // header('location: index.php?action=publish-travel');
+        header('location: index.php?action=publish-travel');
     }
 }

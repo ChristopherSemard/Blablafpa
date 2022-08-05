@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require_once('../src/controllers/Homepage.php');
 require_once('../src/controllers/Login.php');
 require_once('../src/controllers/Signup.php');
@@ -12,7 +13,6 @@ require_once('../src/controllers/Profile.php');
 
 
 try {
-    session_start();
     if (isset($_GET['action']) && $_GET['action']) {
         if ($_GET['action'] === 'login') {
             displayFormLogin();

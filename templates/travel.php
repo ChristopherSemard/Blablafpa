@@ -60,7 +60,7 @@
 
           <?php $freeSeats = $travel["seat_available"] - $travelSteps[0]['seatsOccupied']; ?>
           <?php if ($freeSeats > 1) : ?>
-            <p class="text-success mb-1"><?php $freeSeats ?> places disponibles</p>
+            <p class="text-success mb-1"><?= $freeSeats ?> places disponibles</p>
           <?php elseif ($freeSeats == 1) : ?>
             <p class="text-warning mb-1">1 place disponible</p>
           <?php else : ?>
