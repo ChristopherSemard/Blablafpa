@@ -38,7 +38,6 @@ function displayTravel($id)
 function submitMessage($input)
 {
     require_once('../src/Repository/MessageRepository.php');
-    var_dump($input);
     $content = htmlspecialchars($input['message']);
     $userId = $input['userId'];
     $travelId = $input['travelId'];

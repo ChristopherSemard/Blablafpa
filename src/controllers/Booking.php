@@ -42,7 +42,6 @@ function submitBooking($input)
         $travelListSteps = json_decode($travel['list_steps']);
         $indexStart = array_search($start, $travelListSteps);
         $indexFinish = array_search($destination, $travelListSteps);
-        var_dump($indexStart, $indexFinish);
         if ($indexStart >= $indexFinish) {
             $_SESSION['ERROR_BOOKING-TRAVEL'] = "Vous ne pouvez pas choisir une ville de départ située après votre arrivée dans le trajet";
             header('location: index.php?action=travel&id=' . $travelId);

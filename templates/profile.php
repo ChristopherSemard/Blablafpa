@@ -13,16 +13,7 @@ function getMyDate($srting)
 
 <!-- Main -->
 <main class="container-lg py-5 col-lg-8 m-vh-80">
-  <!-- <pre>
-    <?php
-    var_dump($travels);
-    ?>
-  </pre>
-  <pre>
-    <?php
-    var_dump($bookings);
-    ?>
-  </pre> -->
+
 
 
   <div class=" d-flex gap-3 flex-wrap justify-content-between">

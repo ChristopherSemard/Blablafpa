@@ -22,7 +22,6 @@ function addBooking($booking, $travelListSteps, $travelSteps, $travel, $bdd)
     $indexStart = array_search($booking->getCityStart(), $travelListSteps);
     $indexFinish = array_search($booking->getCityDestination(), $travelListSteps);
     for ($i = $indexStart; $i < $indexFinish; $i++) {
-        var_dump($travelSteps[$i], $lastId, $bdd);
         addBookedStep($travelSteps[$i], $lastId, $bdd);
     }
 }
