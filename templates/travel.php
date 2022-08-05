@@ -93,7 +93,7 @@
 
         <div class="event">
           <p class="date my-1">Arrivée</p>
-          <p class="txt mb-1"><?= $travel["destination"] ?></p>
+          <p class="txt m-0 mb-1"><?= $travel["destination"] ?></p>
         </div>
 
       </div>
@@ -142,7 +142,7 @@
   </div>
 
 
-  <?php if (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER'] == $travel["user_id"] || isset($_SESSION['LOGGED_USER']) && isset($userIsBooked)) : ?>
+  <?php if (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER']['userId'] == $travel["user_id"] || isset($_SESSION['LOGGED_USER']) && isset($userIsBooked)) : ?>
     <form id="messages" class=" d-flex flex-column gap-3" method="POST" action="../index.php?action=submit-message">
       <h2>Messages</h2>
       <label for="inputMessage">Envoyer un message</label>
@@ -161,24 +161,29 @@
 
         <?php foreach ($messages as $key => $message) : ?>
 
-
           <?php $date = new DateTime($message['message_date']);
           $dateFormat = $date->format('d/m/Y à H:i'); ?>
-          <div class="card mt-2 p-3 py-2 shadow-sm">
-            <div class="d-flex justify-content-between align-items-center">
-              <p>Par <strong><?= $message['firstname'] . ' ' . $message['lastname'] ?></strong></p>
-              <p>Le <?= $dateFormat ?></p>
-            </div>
-            <div>
-              <p><?= $message['content'] ?></p>
-            </div>
-          </div>
 
-        <?php endforeach ?>
-      </div>
-    <?php endif ?>
 
-  <?php endif ?>
+          <?php if ($message['user_id'] == $user['user_id']) : ?>
+            <div class="card bg-light mt-2 p-3 py-2 shadow-sm">
+            <?php else : ?>
+              <div class="card mt-2 p-3 py-2 shadow-sm">
+              <?php endif ?>
+              <div class="d-flex justify-content-between align-items-center">
+                <p>Par <strong><?= $message['firstname'] . ' ' . $message['lastname'] ?></strong></p>
+                <p>Le <?= $dateFormat ?></p>
+              </div>
+              <div>
+                <p><?= $message['content'] ?></p>
+              </div>
+              </div>
+
+            <?php endforeach ?>
+            </div>
+          <?php endif ?>
+
+        <?php endif ?>
 
 
   <div id="map"></div>
