@@ -1,32 +1,13 @@
 # Blablafpa
 
-Trajet : 
-    Depart : 
-    - soit Depart d'un trajet
-    - soit index < Destination
+### Contexte : 
+Créé un site web de covoiturage type 'BlaBlaCar' pour les personnelles et stagiaires de AFPA.
+Le projet a été fait en groupe (@ChristopherSemard, @Aminebouaich, @damirdine)
 
-    Destination : 
-    - soit Destination d'un trajet
-    - soit index > Depart
-
-    Siege:
-    - seulement si placeDemander < placeDisponible
-
-Exemple Trajet : Rouen -> Amiens -> St Quentin ->Lille || placesMax 3
-
-    - si 3 personne Rouen: (2 Amiens,1 Lille)
-        reste 0 places :
-            - place complet
-    - arriver a Amiens:
-        - reservation possible 2 places : Amiens -> St-Quentin -> Lille : 
-            - 1 personne reserve Amiens -> St-Quentin
-        reste 1 places :
-            - 1 places non reservé
-    - arriver a St-Quentin:
-        - reservation possible 2places: St-Quentin -> Lille
-            - 1 passager descend
-            - 2 personne reserves : St-Quentin -> Lille
-        reste 0 place :
-            - complet
-    - arriver a Lille :
-        - Arriver destination
+Le site web devra regrouper les fonctionnalités suivantes : 
+    - Authentification utilisateur
+    - Une personne va pouvoir Créer des trajets, rechercher des trajets et se positionner sur un trajet.
+    - Gestion du nombre de places disponible
+    - Gestion des étapes dans la création du trajet
+    - Gestion des parties de trajet dans la recherche
+    - Discussion possible entre le conducteur et les passagers
