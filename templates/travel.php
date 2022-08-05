@@ -23,7 +23,7 @@
   $heure = new DateTime($travel['date_start']);
   $heureFormat = $date->format('H:i');  ?>
 
-  <h2 class="color-primary">Trajet <strong class="color-secondary"><?= $travel['start'] . '-' . $travel['destination'] ?></strong> le <strong class="color-secondary"><?= $dateFormat ?> à <?= $heureFormat ?></strong></h2>
+  <h2 class="color-primary" id="travel" data-liststeps='<?=$travel['list_steps']?>'>Trajet <strong class="color-secondary"><?= $travel['start'] . '-' . $travel['destination'] ?></strong> le <strong class="color-secondary"><?= $dateFormat ?> à <?= $heureFormat ?></strong></h2>
 
   <div class="card w-100 shadow-sm p-3 py-4 d-flex flex-row gap-4 mb-3">
     <div class="text-center p-1  d-flex">
@@ -181,7 +181,7 @@
   <?php endif ?>
 
 
-
+  <div id="map"></div>
 </main>
 
 

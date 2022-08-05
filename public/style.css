@@ -283,9 +283,16 @@ li {
     background-color: #f5f5f5;
 }
 .cityAutocomplete {
-    /* text-transform: capitalize; */
+    text-transform: capitalize;
 }
 
+/* -----Maps------*/
+#map{
+    width: 50vw;
+    height: 50vh;
+}
+
+/* ------- */
 .travel-graphic {
     width: 100%;
 }
