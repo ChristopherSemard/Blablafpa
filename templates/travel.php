@@ -35,7 +35,7 @@
         <p class=" h-5"><strong>Email : </strong><?= $user['email'] ?></p>
       </div>
       <div class="buttons">
-        <?php if (isset($_SESSION['LOGGED_USER'])) : ?>
+        <?php if (isset($_SESSION['LOGGED_USER']) && $_SESSION['LOGGED_USER']['userId'] == $travel["user_id"] || isset($_SESSION['LOGGED_USER']) && isset($userIsBooked)) : ?>
           <a type="button" href="#messages" class="btn  border-secondary  ml-3 px-4">Message</a>
           <!-- <a class="btn background-primary px-4 ms-2">Contact</a> -->
         <?php else : ?>

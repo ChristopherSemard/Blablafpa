@@ -13,20 +13,20 @@
         <!-- Choix de pseudo -->
         <div class="form-group">
             <label for="inputAfpaId">ID AFPA</label>
-            <input type="text" class="form-control" id="inputAfpaId" name="afpaId" placeholder="Identifiant AFPA" required value="<?= isset($_SESSION['ERROR_SIGNUP_INPUT']) ? $_SESSION['ERROR_SIGNUP_INPUT']['afpaId'] : '' ?>">
+            <input type="number" class="form-control" id="inputAfpaId" name="afpaId" placeholder="Identifiant AFPA" required value="<?= isset($_SESSION['ERROR_SIGNUP_INPUT']) ? $_SESSION['ERROR_SIGNUP_INPUT']['afpaId'] : '' ?>">
         </div>
         <!-- Choix de mot de passe -->
         <div class="form-group">
-            <label for="inputFirstName">Fist Name : </label>
-            <input type="text" class="form-control" id="inputFirstName" name="firstName" placeholder="firstname" required value="<?= isset($_SESSION['ERROR_SIGNUP_INPUT']) ? $_SESSION['ERROR_SIGNUP_INPUT']['firstName'] : '' ?>">
+            <label for="inputFirstName">Prénom </label>
+            <input type="text" class="form-control" id="inputFirstName" name="firstName" placeholder="Prénom" required value="<?= isset($_SESSION['ERROR_SIGNUP_INPUT']) ? $_SESSION['ERROR_SIGNUP_INPUT']['firstName'] : '' ?>">
         </div>
         <div class="form-group">
-            <label for="inputLastName">Last Name :</label>
-            <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="lastname" required value="<?= isset($_SESSION['ERROR_SIGNUP_INPUT']) ? $_SESSION['ERROR_SIGNUP_INPUT']['lastName'] : '' ?>">
+            <label for="inputLastName">Nom</label>
+            <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="Nom" required value="<?= isset($_SESSION['ERROR_SIGNUP_INPUT']) ? $_SESSION['ERROR_SIGNUP_INPUT']['lastName'] : '' ?>">
         </div>
         <div class="form-group">
-            <label for="inputEmail">Email :</label>
-            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="email" required value="<?= isset($_SESSION['ERROR_SIGNUP_INPUT']) ? $_SESSION['ERROR_SIGNUP_INPUT']['email'] : '' ?>">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required value="<?= isset($_SESSION['ERROR_SIGNUP_INPUT']) ? $_SESSION['ERROR_SIGNUP_INPUT']['email'] : '' ?>">
         </div>
         <div class="form-group">
             <label for="inputPassword">Mot de passe</label>

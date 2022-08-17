@@ -38,7 +38,7 @@ function submitSignup($input)
             exit;
         }
 
-        // // Si les deux mdp saisis sont différents
+        // Si les deux mdp saisis sont différents
         else if ($password != $password_retype) {
             $_SESSION['ERROR_SIGNUP'] = 'Vos mots de passe ne correspondent pas.';
             $_SESSION['ERROR_SIGNUP_INPUT'] = $input;
@@ -46,7 +46,7 @@ function submitSignup($input)
             exit;
         }
 
-        //     // On verifie que la longueur du pseudo <= 60
+        // On verifie que la longueur du pseudo <= 60
         else if (strlen($idAfpa) > 60) {
             $_SESSION['ERROR_SIGNUP'] = 'L\'ID Afpa n\'est pas valide, merci d\'en choisir un autre.';
             $_SESSION['ERROR_SIGNUP_INPUT'] = $input;
@@ -54,7 +54,7 @@ function submitSignup($input)
             exit;
         }
 
-        // // On verifie que la longueur du mail <= 100    
+        // On verifie que la longueur du mail <= 100    
         else if (strlen($email) > 150) {
             $_SESSION['ERROR_SIGNUP'] = 'Le mail est trop long, merci d\'en choisir un autre.';
             $_SESSION['ERROR_SIGNUP_INPUT'] = $input;
