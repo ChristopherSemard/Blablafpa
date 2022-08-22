@@ -56,4 +56,3 @@ function htmlDistanceAndDuration(distance, duration) {
     console.log(distance, duration)
 }
 window.initMap = initMap;
-
