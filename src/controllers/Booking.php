@@ -47,7 +47,12 @@ function submitBooking($input)
             header('location: index.php?action=travel&id=' . $travelId);
             exit;
         }
-        foreach ($travelSteps as $key => $step) {
+        $bookingTravelSteps = [];
+        for ($i = $indexStart; $i < $indexFinish; $i++) {
+            array_push($bookingTravelSteps, $travelSteps[$i]);
+        }
+
+        foreach ($bookingTravelSteps as $key => $step) {
             if ($step['seatsOccupied'] >= $travel['seat_available']) {
                 $_SESSION['ERROR_BOOKING-TRAVEL'] = "Malheureusement il n'y a plus assez de places sur ce trajet !";
                 header('location: index.php?action=travel&id=' . $travelId);
@@ -60,5 +65,6 @@ function submitBooking($input)
 
         $_SESSION['SUCCESS_BOOKING-TRAVEL'] = "Félicitations vous avez réservé votre place pour ce trajet !";
         header('location: index.php?action=travel&id=' . $travelId);
+        exit;
     }
 }
